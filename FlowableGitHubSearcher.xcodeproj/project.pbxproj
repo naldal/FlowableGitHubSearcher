@@ -9,21 +9,60 @@
 /* Begin PBXBuildFile section */
 		DA5EDDC528D36AE300D00510 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDDC428D36AE300D00510 /* AppDelegate.swift */; };
 		DA5EDDC728D36AE300D00510 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDDC628D36AE300D00510 /* SceneDelegate.swift */; };
-		DA5EDDC928D36AE300D00510 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDDC828D36AE300D00510 /* ViewController.swift */; };
-		DA5EDDCC28D36AE300D00510 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA5EDDCA28D36AE300D00510 /* Main.storyboard */; };
+		DA5EDDC928D36AE300D00510 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDDC828D36AE300D00510 /* MainViewController.swift */; };
 		DA5EDDCE28D36AE400D00510 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA5EDDCD28D36AE400D00510 /* Assets.xcassets */; };
 		DA5EDDD128D36AE400D00510 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA5EDDCF28D36AE400D00510 /* LaunchScreen.storyboard */; };
+		DA5EDDE028D36B1600D00510 /* FlowSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDDD828D36B1600D00510 /* FlowSteps.swift */; };
+		DA5EDDE128D36B1600D00510 /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDDD928D36B1600D00510 /* AppFlow.swift */; };
+		DA5EDDE228D36B1600D00510 /* MainFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDDDA28D36B1600D00510 /* MainFlow.swift */; };
+		DA5EDDEA28D36B5D00D00510 /* RxFlow in Frameworks */ = {isa = PBXBuildFile; productRef = DA5EDDE928D36B5D00D00510 /* RxFlow */; };
+		DA5EDDED28D36B7900D00510 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DA5EDDEC28D36B7900D00510 /* Alamofire */; };
+		DA5EDDF028D36B8B00D00510 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DA5EDDEF28D36B8B00D00510 /* SnapKit */; };
+		DA5EDDF328D36B9900D00510 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DA5EDDF228D36B9900D00510 /* Kingfisher */; };
+		DA5EDDF928D36D3400D00510 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = DA5EDDF828D36D3400D00510 /* Then */; };
+		DA5EDE0628D36E9A00D00510 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE0528D36E9A00D00510 /* MainViewModel.swift */; };
+		DA5EDE0B28D370C100D00510 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE0A28D370C100D00510 /* NetworkSession.swift */; };
+		DA5EDE0D28D3712C00D00510 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE0C28D3712C00D00510 /* NetworkService.swift */; };
+		DA5EDE1428D3717C00D00510 /* CommonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE1328D3717C00D00510 /* CommonResponse.swift */; };
+		DA5EDE1728D3722B00D00510 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = DA5EDE1628D3722B00D00510 /* Moya */; };
+		DA5EDE1928D3722B00D00510 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = DA5EDE1828D3722B00D00510 /* ReactiveMoya */; };
+		DA5EDE1B28D3722B00D00510 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = DA5EDE1A28D3722B00D00510 /* RxMoya */; };
+		DA5EDE1E28D372B800D00510 /* Observable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE1D28D372B800D00510 /* Observable+Extensions.swift */; };
+		DA5EDE2028D3738D00D00510 /* NetworkErrorBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE1F28D3738D00D00510 /* NetworkErrorBuilder.swift */; };
+		DA5EDE2328D373EF00D00510 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = DA5EDE2228D373EF00D00510 /* SwiftyBeaver */; };
+		DA5EDE2528D3749F00D00510 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE2428D3749F00D00510 /* UIColor+Extensions.swift */; };
+		DA5EDE2728D3751700D00510 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE2628D3751700D00510 /* UITextField+Extensions.swift */; };
+		DA5EDE2928D3754500D00510 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE2828D3754500D00510 /* UIFont+Extensions.swift */; };
+		DA5EDE2B28D3756C00D00510 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE2A28D3756C00D00510 /* UIView+Extensions.swift */; };
+		DA5EDE2F28D3782600D00510 /* UserSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE2E28D3782600D00510 /* UserSearch.swift */; };
+		DA5EDE3128D3790F00D00510 /* RepoSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE3028D3790F00D00510 /* RepoSearch.swift */; };
+		DA5EDE3428D379FC00D00510 /* EnumType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE3328D379FC00D00510 /* EnumType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DA5EDDC128D36AE300D00510 /* FlowableGitHubSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowableGitHubSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA5EDDC428D36AE300D00510 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA5EDDC628D36AE300D00510 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DA5EDDC828D36AE300D00510 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DA5EDDCB28D36AE300D00510 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DA5EDDC828D36AE300D00510 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DA5EDDCD28D36AE400D00510 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA5EDDD028D36AE400D00510 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA5EDDD228D36AE400D00510 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA5EDDD828D36B1600D00510 /* FlowSteps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowSteps.swift; sourceTree = "<group>"; };
+		DA5EDDD928D36B1600D00510 /* AppFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
+		DA5EDDDA28D36B1600D00510 /* MainFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlow.swift; sourceTree = "<group>"; };
+		DA5EDE0528D36E9A00D00510 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		DA5EDE0A28D370C100D00510 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
+		DA5EDE0C28D3712C00D00510 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		DA5EDE1328D3717C00D00510 /* CommonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonResponse.swift; sourceTree = "<group>"; };
+		DA5EDE1D28D372B800D00510 /* Observable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Extensions.swift"; sourceTree = "<group>"; };
+		DA5EDE1F28D3738D00D00510 /* NetworkErrorBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorBuilder.swift; sourceTree = "<group>"; };
+		DA5EDE2428D3749F00D00510 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		DA5EDE2628D3751700D00510 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		DA5EDE2828D3754500D00510 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		DA5EDE2A28D3756C00D00510 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		DA5EDE2E28D3782600D00510 /* UserSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearch.swift; sourceTree = "<group>"; };
+		DA5EDE3028D3790F00D00510 /* RepoSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSearch.swift; sourceTree = "<group>"; };
+		DA5EDE3328D379FC00D00510 /* EnumType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +70,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA5EDE1928D3722B00D00510 /* ReactiveMoya in Frameworks */,
+				DA5EDDF328D36B9900D00510 /* Kingfisher in Frameworks */,
+				DA5EDDF928D36D3400D00510 /* Then in Frameworks */,
+				DA5EDE1728D3722B00D00510 /* Moya in Frameworks */,
+				DA5EDDF028D36B8B00D00510 /* SnapKit in Frameworks */,
+				DA5EDDEA28D36B5D00D00510 /* RxFlow in Frameworks */,
+				DA5EDE1B28D3722B00D00510 /* RxMoya in Frameworks */,
+				DA5EDDED28D36B7900D00510 /* Alamofire in Frameworks */,
+				DA5EDE2328D373EF00D00510 /* SwiftyBeaver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +104,94 @@
 		DA5EDDC328D36AE300D00510 /* FlowableGitHubSearcher */ = {
 			isa = PBXGroup;
 			children = (
+				DA5EDE1C28D372AB00D00510 /* Extension */,
+				DA5EDE3228D379D600D00510 /* Utils */,
+				DA5EDE2C28D3774F00D00510 /* Network */,
+				DA5EDE0828D36EB800D00510 /* Flows */,
+				DA5EDE0728D36EAB00D00510 /* Steps */,
+				DA5EDE0428D36E7600D00510 /* Features */,
 				DA5EDDC428D36AE300D00510 /* AppDelegate.swift */,
 				DA5EDDC628D36AE300D00510 /* SceneDelegate.swift */,
-				DA5EDDC828D36AE300D00510 /* ViewController.swift */,
-				DA5EDDCA28D36AE300D00510 /* Main.storyboard */,
 				DA5EDDCD28D36AE400D00510 /* Assets.xcassets */,
 				DA5EDDCF28D36AE400D00510 /* LaunchScreen.storyboard */,
 				DA5EDDD228D36AE400D00510 /* Info.plist */,
 			);
 			path = FlowableGitHubSearcher;
+			sourceTree = "<group>";
+		};
+		DA5EDE0428D36E7600D00510 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				DA5EDDC828D36AE300D00510 /* MainViewController.swift */,
+				DA5EDE0528D36E9A00D00510 /* MainViewModel.swift */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		DA5EDE0728D36EAB00D00510 /* Steps */ = {
+			isa = PBXGroup;
+			children = (
+				DA5EDDD828D36B1600D00510 /* FlowSteps.swift */,
+			);
+			path = Steps;
+			sourceTree = "<group>";
+		};
+		DA5EDE0828D36EB800D00510 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				DA5EDDD928D36B1600D00510 /* AppFlow.swift */,
+				DA5EDDDA28D36B1600D00510 /* MainFlow.swift */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		DA5EDE0928D3709C00D00510 /* NetworkHandler */ = {
+			isa = PBXGroup;
+			children = (
+				DA5EDE0A28D370C100D00510 /* NetworkSession.swift */,
+				DA5EDE0C28D3712C00D00510 /* NetworkService.swift */,
+				DA5EDE1328D3717C00D00510 /* CommonResponse.swift */,
+				DA5EDE1F28D3738D00D00510 /* NetworkErrorBuilder.swift */,
+			);
+			path = NetworkHandler;
+			sourceTree = "<group>";
+		};
+		DA5EDE1C28D372AB00D00510 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DA5EDE1D28D372B800D00510 /* Observable+Extensions.swift */,
+				DA5EDE2428D3749F00D00510 /* UIColor+Extensions.swift */,
+				DA5EDE2628D3751700D00510 /* UITextField+Extensions.swift */,
+				DA5EDE2828D3754500D00510 /* UIFont+Extensions.swift */,
+				DA5EDE2A28D3756C00D00510 /* UIView+Extensions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		DA5EDE2C28D3774F00D00510 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				DA5EDE2D28D377B400D00510 /* API_Codable */,
+				DA5EDE0928D3709C00D00510 /* NetworkHandler */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		DA5EDE2D28D377B400D00510 /* API_Codable */ = {
+			isa = PBXGroup;
+			children = (
+				DA5EDE2E28D3782600D00510 /* UserSearch.swift */,
+				DA5EDE3028D3790F00D00510 /* RepoSearch.swift */,
+			);
+			path = API_Codable;
+			sourceTree = "<group>";
+		};
+		DA5EDE3228D379D600D00510 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DA5EDE3328D379FC00D00510 /* EnumType.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +210,17 @@
 			dependencies = (
 			);
 			name = FlowableGitHubSearcher;
+			packageProductDependencies = (
+				DA5EDDE928D36B5D00D00510 /* RxFlow */,
+				DA5EDDEC28D36B7900D00510 /* Alamofire */,
+				DA5EDDEF28D36B8B00D00510 /* SnapKit */,
+				DA5EDDF228D36B9900D00510 /* Kingfisher */,
+				DA5EDDF828D36D3400D00510 /* Then */,
+				DA5EDE1628D3722B00D00510 /* Moya */,
+				DA5EDE1828D3722B00D00510 /* ReactiveMoya */,
+				DA5EDE1A28D3722B00D00510 /* RxMoya */,
+				DA5EDE2228D373EF00D00510 /* SwiftyBeaver */,
+			);
 			productName = FlowableGitHubSearcher;
 			productReference = DA5EDDC128D36AE300D00510 /* FlowableGitHubSearcher.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +249,15 @@
 				Base,
 			);
 			mainGroup = DA5EDDB828D36AE300D00510;
+			packageReferences = (
+				DA5EDDE828D36B5D00D00510 /* XCRemoteSwiftPackageReference "RxFlow" */,
+				DA5EDDEB28D36B7900D00510 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				DA5EDDEE28D36B8B00D00510 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				DA5EDDF128D36B9900D00510 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				DA5EDDF728D36D3400D00510 /* XCRemoteSwiftPackageReference "Then" */,
+				DA5EDE1528D3722B00D00510 /* XCRemoteSwiftPackageReference "Moya" */,
+				DA5EDE2128D373EF00D00510 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
+			);
 			productRefGroup = DA5EDDC228D36AE300D00510 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +274,6 @@
 			files = (
 				DA5EDDD128D36AE400D00510 /* LaunchScreen.storyboard in Resources */,
 				DA5EDDCE28D36AE400D00510 /* Assets.xcassets in Resources */,
-				DA5EDDCC28D36AE300D00510 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +284,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA5EDDC928D36AE300D00510 /* ViewController.swift in Sources */,
+				DA5EDDC928D36AE300D00510 /* MainViewController.swift in Sources */,
+				DA5EDDE028D36B1600D00510 /* FlowSteps.swift in Sources */,
+				DA5EDDE228D36B1600D00510 /* MainFlow.swift in Sources */,
+				DA5EDE2928D3754500D00510 /* UIFont+Extensions.swift in Sources */,
+				DA5EDE2528D3749F00D00510 /* UIColor+Extensions.swift in Sources */,
 				DA5EDDC528D36AE300D00510 /* AppDelegate.swift in Sources */,
+				DA5EDE2B28D3756C00D00510 /* UIView+Extensions.swift in Sources */,
+				DA5EDE0D28D3712C00D00510 /* NetworkService.swift in Sources */,
+				DA5EDE3428D379FC00D00510 /* EnumType.swift in Sources */,
+				DA5EDE2F28D3782600D00510 /* UserSearch.swift in Sources */,
+				DA5EDE3128D3790F00D00510 /* RepoSearch.swift in Sources */,
+				DA5EDE1E28D372B800D00510 /* Observable+Extensions.swift in Sources */,
+				DA5EDE2728D3751700D00510 /* UITextField+Extensions.swift in Sources */,
+				DA5EDDE128D36B1600D00510 /* AppFlow.swift in Sources */,
+				DA5EDE2028D3738D00D00510 /* NetworkErrorBuilder.swift in Sources */,
+				DA5EDE0B28D370C100D00510 /* NetworkSession.swift in Sources */,
+				DA5EDE1428D3717C00D00510 /* CommonResponse.swift in Sources */,
 				DA5EDDC728D36AE300D00510 /* SceneDelegate.swift in Sources */,
+				DA5EDE0628D36E9A00D00510 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DA5EDDCA28D36AE300D00510 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DA5EDDCB28D36AE300D00510 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DA5EDDCF28D36AE400D00510 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,7 +370,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +424,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -292,7 +446,7 @@
 				INFOPLIST_FILE = FlowableGitHubSearcher/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -304,7 +458,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -320,7 +474,7 @@
 				INFOPLIST_FILE = FlowableGitHubSearcher/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -332,7 +486,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -358,6 +512,113 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DA5EDDE828D36B5D00D00510 /* XCRemoteSwiftPackageReference "RxFlow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxFlow.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		DA5EDDEB28D36B7900D00510 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		DA5EDDEE28D36B8B00D00510 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		DA5EDDF128D36B9900D00510 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		DA5EDDF728D36D3400D00510 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		DA5EDE1528D3722B00D00510 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = exactVersion;
+				version = 15.0.0;
+			};
+		};
+		DA5EDE2128D373EF00D00510 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyBeaver/SwiftyBeaver";
+			requirement = {
+				kind = exactVersion;
+				version = 1.9.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DA5EDDE928D36B5D00D00510 /* RxFlow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA5EDDE828D36B5D00D00510 /* XCRemoteSwiftPackageReference "RxFlow" */;
+			productName = RxFlow;
+		};
+		DA5EDDEC28D36B7900D00510 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA5EDDEB28D36B7900D00510 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		DA5EDDEF28D36B8B00D00510 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA5EDDEE28D36B8B00D00510 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		DA5EDDF228D36B9900D00510 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA5EDDF128D36B9900D00510 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		DA5EDDF828D36D3400D00510 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA5EDDF728D36D3400D00510 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		DA5EDE1628D3722B00D00510 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA5EDE1528D3722B00D00510 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		DA5EDE1828D3722B00D00510 /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA5EDE1528D3722B00D00510 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		DA5EDE1A28D3722B00D00510 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA5EDE1528D3722B00D00510 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+		DA5EDE2228D373EF00D00510 /* SwiftyBeaver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA5EDE2128D373EF00D00510 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
+			productName = SwiftyBeaver;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DA5EDDB928D36AE300D00510 /* Project object */;
 }
