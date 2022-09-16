@@ -10,11 +10,12 @@ import RxCocoa
 import RxFlow
 
 protocol MainViewModelInput {
-    
+    var viewWillAppear: PublishRelay<Void> { get }
 }
 
 protocol MainViewModelOutput {
     var testOutput: Observable<String> { get }
+    var realDataOutput: Driver<RepoSearchResponse> { get }
 }
 
 protocol MainViewModelType {
@@ -27,22 +28,46 @@ final class MainViewModel: Stepper,
                            MainViewModelOutput,
                            MainViewModelType {
     
+    
     // MARK: - Steps
+    
     let steps = PublishRelay<Step>()
     
+    
     // MARK: - Type
+    
     var input: MainViewModelInput { return self }
     var output: MainViewModelOutput { return self }
     
+    
     // MARK: - Input
+    
+    var viewWillAppear = PublishRelay<Void>()
     
     
     // MARK: - Output
-    var testOutput = Observable<String>.just("this is TEST!")
     
+    var testOutput = Observable<String>.just("this is TEST!")
+    var realDataOutput = Driver<RepoSearchResponse>.empty()
+    
+
     
     // MARK: - Init
-    init() {
+    init(networkService: NetworkService<GithubSearcherAPI> = NetworkService<GithubSearcherAPI>()) {
+        let networkInteractor = NetworkInteractor(networkService: networkService)
         
+        let viewWillAppearShared = viewWillAppear.share()
+        
+        let fetchRepositoriesResponse = viewWillAppearShared
+            .flatMapLatest({ networkInteractor.fetchRepositories(query: "whereIam") })
+            .share()
+        
+        realDataOutput = fetchRepositoriesResponse
+            .filter({ data in
+                print("data ~> \(data)")
+                return true
+            })
+            .compactMap({$0.data})
+            .asDriverOnErrorJustComplete()
     }
 }

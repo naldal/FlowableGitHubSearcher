@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Welcome: Codable {
+struct RepoSearchResponse: Codable {
     let totalCount: Int
     let incompleteResults: Bool
     let items: [RepoInfo]

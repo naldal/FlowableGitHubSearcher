@@ -13,6 +13,9 @@
 		DA5765CA28D413F5004E7993 /* UISearchBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5765C928D413F5004E7993 /* UISearchBar+Extensions.swift */; };
 		DA5765CD28D419D7004E7993 /* Constants+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5765CC28D419D7004E7993 /* Constants+UI.swift */; };
 		DA5765CF28D419ED004E7993 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5765CE28D419ED004E7993 /* Constants.swift */; };
+		DA5765D228D41C88004E7993 /* RepositoryInformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5765D128D41C88004E7993 /* RepositoryInformationCell.swift */; };
+		DA5765D428D428A9004E7993 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5765D328D428A9004E7993 /* NetworkManager.swift */; };
+		DA5765D628D46694004E7993 /* NetworkInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5765D528D46694004E7993 /* NetworkInteractor.swift */; };
 		DA5EDDC528D36AE300D00510 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDDC428D36AE300D00510 /* AppDelegate.swift */; };
 		DA5EDDC728D36AE300D00510 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDDC628D36AE300D00510 /* SceneDelegate.swift */; };
 		DA5EDDC928D36AE300D00510 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDDC828D36AE300D00510 /* MainViewController.swift */; };
@@ -52,6 +55,9 @@
 		DA5765C928D413F5004E7993 /* UISearchBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extensions.swift"; sourceTree = "<group>"; };
 		DA5765CC28D419D7004E7993 /* Constants+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+UI.swift"; sourceTree = "<group>"; };
 		DA5765CE28D419ED004E7993 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DA5765D128D41C88004E7993 /* RepositoryInformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryInformationCell.swift; sourceTree = "<group>"; };
+		DA5765D328D428A9004E7993 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		DA5765D528D46694004E7993 /* NetworkInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInteractor.swift; sourceTree = "<group>"; };
 		DA5EDDC128D36AE300D00510 /* FlowableGitHubSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowableGitHubSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA5EDDC428D36AE300D00510 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA5EDDC628D36AE300D00510 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +106,7 @@
 		DA5765C328D412CE004E7993 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				DA5765D028D41C72004E7993 /* View */,
 				DA5EDDC828D36AE300D00510 /* MainViewController.swift */,
 				DA5EDE0528D36E9A00D00510 /* MainViewModel.swift */,
 			);
@@ -122,6 +129,14 @@
 				DA5765CC28D419D7004E7993 /* Constants+UI.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		DA5765D028D41C72004E7993 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA5765D128D41C88004E7993 /* RepositoryInformationCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DA5EDDB828D36AE300D00510 = {
@@ -212,6 +227,8 @@
 		DA5EDE2C28D3774F00D00510 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				DA5765D328D428A9004E7993 /* NetworkManager.swift */,
+				DA5765D528D46694004E7993 /* NetworkInteractor.swift */,
 				DA5EDE2D28D377B400D00510 /* API_Codable */,
 				DA5EDE0928D3709C00D00510 /* NetworkHandler */,
 			);
@@ -326,6 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA5765D428D428A9004E7993 /* NetworkManager.swift in Sources */,
 				DA5765CF28D419ED004E7993 /* Constants.swift in Sources */,
 				DA5EDDC928D36AE300D00510 /* MainViewController.swift in Sources */,
 				DA5EDDE028D36B1600D00510 /* FlowSteps.swift in Sources */,
@@ -336,12 +354,14 @@
 				DA5EDDC528D36AE300D00510 /* AppDelegate.swift in Sources */,
 				DA5EDE2B28D3756C00D00510 /* UIView+Extensions.swift in Sources */,
 				DA5765CA28D413F5004E7993 /* UISearchBar+Extensions.swift in Sources */,
+				DA5765D628D46694004E7993 /* NetworkInteractor.swift in Sources */,
 				DA5EDE0D28D3712C00D00510 /* NetworkService.swift in Sources */,
 				DA5EDE3428D379FC00D00510 /* EnumType.swift in Sources */,
 				DA5765CD28D419D7004E7993 /* Constants+UI.swift in Sources */,
 				DA5EDE2F28D3782600D00510 /* UserSearch.swift in Sources */,
 				DA5EDE3128D3790F00D00510 /* RepoSearch.swift in Sources */,
 				DA5EDE1E28D372B800D00510 /* Observable+Extensions.swift in Sources */,
+				DA5765D228D41C88004E7993 /* RepositoryInformationCell.swift in Sources */,
 				DA5EDE2728D3751700D00510 /* UITextField+Extensions.swift in Sources */,
 				DA5EDDE128D36B1600D00510 /* AppFlow.swift in Sources */,
 				DA5EDE2028D3738D00D00510 /* NetworkErrorBuilder.swift in Sources */,

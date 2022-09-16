@@ -14,7 +14,9 @@ import UIKit
 class MainViewController: UIViewController, ViewModelBindableType {
     
     // MARK: - ViewModelType
+    
     var viewModel: MainViewModelType!
+    
     
     // MARK: - Components
     
@@ -47,7 +49,7 @@ class MainViewController: UIViewController, ViewModelBindableType {
     }
     
     private let repositoriesTableView = UITableView().then {
-        $0.backgroundColor = .yellow
+        $0.backgroundColor = .gray
         $0.estimatedRowHeight = UITableView.automaticDimension
         $0.rowHeight = 84
         $0.separatorStyle = .singleLine
@@ -60,9 +62,12 @@ class MainViewController: UIViewController, ViewModelBindableType {
     // MARK: - Component Options
 
     // MARK: - DisposeBag
+    
     let disposeBag = DisposeBag()
     
+    
     // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -71,19 +76,28 @@ class MainViewController: UIViewController, ViewModelBindableType {
         self.configureConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.viewModel.input.viewWillAppear.accept(())
+    }
+    
+    
     // MARK: - Set Layout
+    
     private func setLayout() {
         self.view.addSubview(baseView)
         baseView.addSubviews([searchField, repositoriesTableView])
     }
     
+    
     // MARK: - Configure Constraints
+    
     private func configureConstraints() {
         baseView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
             
             searchField.snp.makeConstraints { make in
-                make.top.equalToSuperview().inset(Constants.DeviceScreen.SAFE_AREA_TOP) // TODO: apply SafeArea
+                make.top.equalToSuperview().inset(Constants.DeviceScreen.SAFE_AREA_TOP)
                 make.leading.trailing.equalToSuperview().inset(16)
                 make.height.equalTo(90)
             }
@@ -94,17 +108,23 @@ class MainViewController: UIViewController, ViewModelBindableType {
                 make.bottom.equalToSuperview()
             }
         }
-        
-    
+
     }
 
     // MARK: - Bind
+    
     func bindViewModel() {
         let output = self.viewModel.output
         
         output.testOutput
             .subscribe(onNext: { str in
                 print(str)
+            })
+            .disposed(by: self.disposeBag)
+        
+        output.realDataOutput
+            .drive(onNext: { repos in
+                print("repose ~> \(repos)")
             })
             .disposed(by: self.disposeBag)
     }

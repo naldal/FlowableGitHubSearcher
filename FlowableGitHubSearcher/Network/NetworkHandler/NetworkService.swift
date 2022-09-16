@@ -86,7 +86,7 @@ extension NetworkService: Networkable {
                         .map(CommonResponse<T>.self)
                         .retry(when: NetworkErrorBuilder.retryHandler)
                         .catch { error in
-                            log.error(error.localizedDescription)
+                            log.error("error localized ~> \(error.localizedDescription)")
                             return .just(NetworkErrorBuilder.common())
                         }
             }
