@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		DA5765C228D402C6004E7993 /* ViewModelBindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5765C128D402C6004E7993 /* ViewModelBindableType.swift */; };
+		DA5765C628D412EA004E7993 /* DetailRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5765C528D412EA004E7993 /* DetailRepositoryViewController.swift */; };
+		DA5765C828D41311004E7993 /* DetailRepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5765C728D41311004E7993 /* DetailRepositoryViewModel.swift */; };
+		DA5765CA28D413F5004E7993 /* UISearchBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5765C928D413F5004E7993 /* UISearchBar+Extensions.swift */; };
 		DA5EDDC528D36AE300D00510 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDDC428D36AE300D00510 /* AppDelegate.swift */; };
 		DA5EDDC728D36AE300D00510 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDDC628D36AE300D00510 /* SceneDelegate.swift */; };
 		DA5EDDC928D36AE300D00510 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDDC828D36AE300D00510 /* MainViewController.swift */; };
@@ -42,6 +45,9 @@
 
 /* Begin PBXFileReference section */
 		DA5765C128D402C6004E7993 /* ViewModelBindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBindableType.swift; sourceTree = "<group>"; };
+		DA5765C528D412EA004E7993 /* DetailRepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRepositoryViewController.swift; sourceTree = "<group>"; };
+		DA5765C728D41311004E7993 /* DetailRepositoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRepositoryViewModel.swift; sourceTree = "<group>"; };
+		DA5765C928D413F5004E7993 /* UISearchBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extensions.swift"; sourceTree = "<group>"; };
 		DA5EDDC128D36AE300D00510 /* FlowableGitHubSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowableGitHubSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA5EDDC428D36AE300D00510 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA5EDDC628D36AE300D00510 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +93,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA5765C328D412CE004E7993 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DA5EDDC828D36AE300D00510 /* MainViewController.swift */,
+				DA5EDE0528D36E9A00D00510 /* MainViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DA5765C428D412D7004E7993 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				DA5765C528D412EA004E7993 /* DetailRepositoryViewController.swift */,
+				DA5765C728D41311004E7993 /* DetailRepositoryViewModel.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		DA5EDDB828D36AE300D00510 = {
 			isa = PBXGroup;
 			children = (
@@ -124,8 +148,8 @@
 		DA5EDE0428D36E7600D00510 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				DA5EDDC828D36AE300D00510 /* MainViewController.swift */,
-				DA5EDE0528D36E9A00D00510 /* MainViewModel.swift */,
+				DA5765C428D412D7004E7993 /* Detail */,
+				DA5765C328D412CE004E7993 /* Main */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -166,6 +190,7 @@
 				DA5EDE2628D3751700D00510 /* UITextField+Extensions.swift */,
 				DA5EDE2828D3754500D00510 /* UIFont+Extensions.swift */,
 				DA5EDE2A28D3756C00D00510 /* UIView+Extensions.swift */,
+				DA5765C928D413F5004E7993 /* UISearchBar+Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -295,6 +320,7 @@
 				DA5765C228D402C6004E7993 /* ViewModelBindableType.swift in Sources */,
 				DA5EDDC528D36AE300D00510 /* AppDelegate.swift in Sources */,
 				DA5EDE2B28D3756C00D00510 /* UIView+Extensions.swift in Sources */,
+				DA5765CA28D413F5004E7993 /* UISearchBar+Extensions.swift in Sources */,
 				DA5EDE0D28D3712C00D00510 /* NetworkService.swift in Sources */,
 				DA5EDE3428D379FC00D00510 /* EnumType.swift in Sources */,
 				DA5EDE2F28D3782600D00510 /* UserSearch.swift in Sources */,
@@ -305,6 +331,8 @@
 				DA5EDE2028D3738D00D00510 /* NetworkErrorBuilder.swift in Sources */,
 				DA5EDE0B28D370C100D00510 /* NetworkSession.swift in Sources */,
 				DA5EDE1428D3717C00D00510 /* CommonResponse.swift in Sources */,
+				DA5765C628D412EA004E7993 /* DetailRepositoryViewController.swift in Sources */,
+				DA5765C828D41311004E7993 /* DetailRepositoryViewModel.swift in Sources */,
 				DA5EDDC728D36AE300D00510 /* SceneDelegate.swift in Sources */,
 				DA5EDE0628D36E9A00D00510 /* MainViewModel.swift in Sources */,
 			);
