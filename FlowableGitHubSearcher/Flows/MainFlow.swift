@@ -15,13 +15,17 @@ class MainFlow: Flow {
         return self.rootViewController
     }
     
-    private var rootViewController = MainViewController()
+    private lazy var rootViewController: MainViewController = {
+        var viewController = MainViewController()
+        viewController.bind(to: MainViewModel())
+        return viewController
+    }()
     
     func navigate(to step: Step) -> FlowContributors {
         guard let step = step as? FlowSteps else { return .none }
         
         switch step {
-        case .mainIsRequired:
+        case .mainSearchIsRequired:
             return test()
         default:
             return .none

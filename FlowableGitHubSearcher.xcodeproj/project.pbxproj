@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA5765C228D402C6004E7993 /* ViewModelBindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5765C128D402C6004E7993 /* ViewModelBindableType.swift */; };
 		DA5EDDC528D36AE300D00510 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDDC428D36AE300D00510 /* AppDelegate.swift */; };
 		DA5EDDC728D36AE300D00510 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDDC628D36AE300D00510 /* SceneDelegate.swift */; };
 		DA5EDDC928D36AE300D00510 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDDC828D36AE300D00510 /* MainViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA5765C128D402C6004E7993 /* ViewModelBindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBindableType.swift; sourceTree = "<group>"; };
 		DA5EDDC128D36AE300D00510 /* FlowableGitHubSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowableGitHubSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA5EDDC428D36AE300D00510 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA5EDDC628D36AE300D00510 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,12 +106,12 @@
 		DA5EDDC328D36AE300D00510 /* FlowableGitHubSearcher */ = {
 			isa = PBXGroup;
 			children = (
-				DA5EDE1C28D372AB00D00510 /* Extension */,
-				DA5EDE3228D379D600D00510 /* Utils */,
-				DA5EDE2C28D3774F00D00510 /* Network */,
 				DA5EDE0828D36EB800D00510 /* Flows */,
 				DA5EDE0728D36EAB00D00510 /* Steps */,
 				DA5EDE0428D36E7600D00510 /* Features */,
+				DA5EDE1C28D372AB00D00510 /* Extension */,
+				DA5EDE3228D379D600D00510 /* Utils */,
+				DA5EDE2C28D3774F00D00510 /* Network */,
 				DA5EDDC428D36AE300D00510 /* AppDelegate.swift */,
 				DA5EDDC628D36AE300D00510 /* SceneDelegate.swift */,
 				DA5EDDCD28D36AE400D00510 /* Assets.xcassets */,
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				DA5EDE3328D379FC00D00510 /* EnumType.swift */,
+				DA5765C128D402C6004E7993 /* ViewModelBindableType.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				DA5EDDE228D36B1600D00510 /* MainFlow.swift in Sources */,
 				DA5EDE2928D3754500D00510 /* UIFont+Extensions.swift in Sources */,
 				DA5EDE2528D3749F00D00510 /* UIColor+Extensions.swift in Sources */,
+				DA5765C228D402C6004E7993 /* ViewModelBindableType.swift in Sources */,
 				DA5EDDC528D36AE300D00510 /* AppDelegate.swift in Sources */,
 				DA5EDE2B28D3756C00D00510 /* UIView+Extensions.swift in Sources */,
 				DA5EDE0D28D3712C00D00510 /* NetworkService.swift in Sources */,

@@ -39,7 +39,7 @@ public enum NetworkErrorBuilder {
     public static func common<T>() -> CommonResponse<T> {
         CommonResponse(
             data: nil,
-            error: ErrorResponse(code: "네트워크 에러 코드", message: "네트워크 에러 메시지") // 네트워크 에러일 시 노출될 메시지 필요
+            error: ErrorResponse(message: "네트워크 에러 메세지", errors: [], documentationURL: "")
         )
     }
 }

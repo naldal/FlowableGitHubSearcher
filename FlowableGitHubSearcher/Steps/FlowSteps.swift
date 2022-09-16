@@ -8,6 +8,8 @@
 import RxFlow
 
 enum FlowSteps: Step {
-    case basic
-    case mainIsRequired
+    /// Root 화면으로 이동
+    case basicViewControllerIsRequired
+    /// 검색화면 bind
+    case mainSearchIsRequired
 }

@@ -26,7 +26,7 @@ class AppFlow: Flow {
         guard let step = step as? FlowSteps else { return .none }
         
         switch step {
-        case .basic:
+        case .basicViewControllerIsRequired:
             return navigationToMainScreen()
         default:
             return .none
@@ -40,7 +40,7 @@ class AppFlow: Flow {
             self.rootViewController.pushViewController(root, animated: false)
         }
         
-        return .one(flowContributor: .contribute(withNextPresentable: mainFlow, withNextStepper: OneStepper(withSingleStep: FlowSteps.mainIsRequired)))
+        return .one(flowContributor: .contribute(withNextPresentable: mainFlow, withNextStepper: OneStepper(withSingleStep: FlowSteps.mainSearchIsRequired)))
     }
     
 }
@@ -51,7 +51,7 @@ class AppStepper: Stepper {
     private let disposeBag = DisposeBag()
     
     var initialStep: Step {
-        return FlowSteps.basic
+        return FlowSteps.basicViewControllerIsRequired
     }
     
 }
