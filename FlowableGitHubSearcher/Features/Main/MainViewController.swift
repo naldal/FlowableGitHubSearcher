@@ -25,7 +25,8 @@ class MainViewController: UIViewController, ViewModelBindableType {
     }()
     
     private let searchField = UISearchBar().then {
-        $0.placeholder = "InformTypeStartingAddress"
+        $0.backgroundColor = .red
+        $0.placeholder = "검색어를 입력해주세요"
         
         $0.positionAdjustment(for: .search)
         $0.searchTextPositionAdjustment = UIOffset(horizontal: 10, vertical: .zero)
@@ -33,11 +34,11 @@ class MainViewController: UIViewController, ViewModelBindableType {
         
         $0.isTranslucent = false
         $0.barTintColor = .white
-        $0.getTextField()?.backgroundColor = .white
+        $0.getTextField()?.backgroundColor = .gray
         
         $0.layer.cornerRadius = 25
         $0.layer.borderWidth = 0.8
-        $0.layer.borderColor = UIColor.white.cgColor
+        $0.layer.borderColor = UIColor.brightOrange.cgColor
         $0.clipsToBounds = true
         
         let textField = $0.value(forKey: "searchField") as? UITextField
@@ -82,15 +83,15 @@ class MainViewController: UIViewController, ViewModelBindableType {
             make.edges.equalToSuperview()
             
             searchField.snp.makeConstraints { make in
-                make.top.equalToSuperview().inset(20) // TODO: apply SafeArea
+                make.top.equalToSuperview().inset(Constants.DeviceScreen.SAFE_AREA_TOP) // TODO: apply SafeArea
                 make.leading.trailing.equalToSuperview().inset(16)
-                make.height.equalTo(60)
+                make.height.equalTo(90)
             }
             
             repositoriesTableView.snp.makeConstraints { make in
                 make.top.equalTo(searchField.snp.bottom).offset(10)
                 make.leading.trailing.equalToSuperview().inset(16)
-                make.bottom.equalToSuperview() // TODO: apply SafeArea
+                make.bottom.equalToSuperview()
             }
         }
         
