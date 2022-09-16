@@ -14,7 +14,6 @@ protocol MainViewModelInput {
 }
 
 protocol MainViewModelOutput {
-    var testOutput: Observable<String> { get }
     var realDataOutput: Driver<RepoSearchResponse> { get }
 }
 
@@ -47,7 +46,6 @@ final class MainViewModel: Stepper,
     
     // MARK: - Output
     
-    var testOutput = Observable<String>.just("this is TEST!")
     var realDataOutput = Driver<RepoSearchResponse>.empty()
     
 
@@ -67,7 +65,7 @@ final class MainViewModel: Stepper,
                 print("data ~> \(data)")
                 return true
             })
-            .compactMap({$0.data})
+
             .asDriverOnErrorJustComplete()
     }
 }

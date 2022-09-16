@@ -10,7 +10,7 @@ import RxSwift
 
 public struct CommonResponse<T: Codable>: Codable {
     /// 각 API의 모델이 담길 객체
-    public var data: T?
+    public var data: T
     /// 에러 발생시 에러 코드와 메시지가 담길 객체
     public var error: ErrorResponse?
 }

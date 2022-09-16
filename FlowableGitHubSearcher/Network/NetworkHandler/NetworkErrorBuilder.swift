@@ -26,7 +26,7 @@ public enum NetworkErrorBuilder {
                     return .error(error)
                 }
                 
-                log.debug("== 재시도 횟수 \(attempt + 1)번 ==")
+                log.info("== 재시도 횟수 \(attempt + 1)번 ==")
             }
             
             return Observable<Int>
@@ -34,13 +34,6 @@ public enum NetworkErrorBuilder {
                 .take(1)
                 .ignoreAll()
         }
-    }
-    
-    public static func common<T>() -> CommonResponse<T> {
-        CommonResponse(
-            data: nil,
-            error: ErrorResponse(message: "네트워크 에러 메세지", errors: [], documentationURL: "")
-        )
     }
 }
 

@@ -9,7 +9,7 @@ import RxSwift
 import UIKit
 
 protocol NetworkInteractable {
-    func fetchRepositories(query: String) -> Observable<CommonResponse<RepoSearchResponse>>
+    func fetchRepositories(query: String) -> Observable<RepoSearchResponse>
 }
 
 class NetworkInteractor: NetworkInteractable {
@@ -20,8 +20,8 @@ class NetworkInteractor: NetworkInteractable {
         self.networkService = networkService
     }
     
-    func fetchRepositories(query: String) -> Observable<CommonResponse<RepoSearchResponse>> {
-        networkService.request(to: .searchRepositories(query: query), decode: RepoSearchResponse.self)
+    func fetchRepositories(query: String) -> Observable<RepoSearchResponse> {
+        networkService.defaultRequest(to: .searchRepositories(query: query), decode: RepoSearchResponse.self)
     }
     
 }

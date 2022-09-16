@@ -116,12 +116,6 @@ class MainViewController: UIViewController, ViewModelBindableType {
     func bindViewModel() {
         let output = self.viewModel.output
         
-        output.testOutput
-            .subscribe(onNext: { str in
-                print(str)
-            })
-            .disposed(by: self.disposeBag)
-        
         output.realDataOutput
             .drive(onNext: { repos in
                 print("repose ~> \(repos)")

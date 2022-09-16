@@ -15,11 +15,6 @@ import UIKit
 public protocol Networkable {
     associatedtype Router
     
-    func request<T: Decodable>(
-        to router: Router,
-        decode: T.Type
-    ) -> Observable<CommonResponse<T>>
-    
     func defaultRequest<T: Decodable>(
         to router: Router,
         decode: T.Type
@@ -62,36 +57,6 @@ public class NetworkService<Router: TargetType> {
 
 extension NetworkService: Networkable {
     
-    /// 실제 API Request 호출부
-    public func request<T: Decodable>(
-        to router: Router,
-        decode: T.Type
-    ) -> Observable<CommonResponse<T>> {
-        let online = networkEnable()
-        let request = provider.rx.request(router, callbackQueue: dispatchQueue)
-        
-        return online
-            .ignore(value: false)
-            .take(1)
-            .flatMap { _ in
-                request
-                    .filterSuccessfulStatusCodes()
-                    .do(onSuccess: {
-                        do {
-                            _ = try JSONDecoder().decode(CommonResponse<T>.self, from: $0.data)
-                        } catch let jsonError {
-                            log.debug("\(T.self): \(jsonError.localizedDescription) - \(jsonError)")
-                        }
-                    })
-                        .map(CommonResponse<T>.self)
-                        .retry(when: NetworkErrorBuilder.retryHandler)
-                        .catch { error in
-                            log.error("error localized ~> \(error.localizedDescription)")
-                            return .just(NetworkErrorBuilder.common())
-                        }
-            }
-    }
-    
     /// Defaults Reqeust로 Observable<T> 리턴
     public func defaultRequest<T: Decodable>(
         to router: Router,
@@ -104,8 +69,22 @@ extension NetworkService: Networkable {
             .ignore(value: false)
             .take(1)
             .flatMap { _ in
-                request.map(T.self)
+                request.filterSuccessfulStatusCodes()
+                    .do(onSuccess: {
+                        do {
+                            _ = try JSONDecoder().decode(T.self, from: $0.data)
+                        } catch let jsonError {
+                            log.debug("\(T.self): \(jsonError.localizedDescription) - \(jsonError)")
+                        }
+                    })
+                    .map(T.self)
+                    .retry(when: NetworkErrorBuilder.retryHandler)
+                    .catch { error in
+                        log.error("error localized ~> \(error.localizedDescription)")
+                        return .error(error)
+                    }
             }
+        
     }
 }
 

@@ -16,17 +16,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var coordinator = FlowCoordinator()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-   
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: windowScene)
         
         self.coordinator.rx.willNavigate.subscribe(onNext: { (flow, step) in
-            print("will navigate to flow=\(flow) and step=\(step)")
+            log.debug("will navigate to flow=\(flow) and step=\(step)")
         }).disposed(by: self.disposeBag)
 
         self.coordinator.rx.didNavigate.subscribe(onNext: { (flow, step) in
-            print("did navigate to flow=\(flow) and step=\(step)")
+            log.debug("did navigate to flow=\(flow) and step=\(step)")
         }).disposed(by: self.disposeBag)
         
         let appFlow = AppFlow()

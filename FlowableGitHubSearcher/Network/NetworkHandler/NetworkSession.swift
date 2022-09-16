@@ -40,10 +40,8 @@ public class ReachabilityManager: NSObject {
         reachSubject.asObservable()
             .do(onNext: { reachable in
                 if !reachable {
-                    // requestAPi 요청시 필수로 네트워크 여결 여부 확인, 필요시 이 부분에 noti를 걸어 BaseView등에서 Toast 처리 가능
-                    print("testtest0")
-                } else {
-                    print("testtest1")
+                    // Toast Popup OR Lottie animate Show 고려
+                    log.error("네트워크 연결 불안정")
                 }
             })
                 }

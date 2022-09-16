@@ -13,7 +13,7 @@ class Constants {
     
     struct githubAPI {
         static let acceptType = "application/vnd.github+json"
-        static let authToken = "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"
+        static let authToken = "dbTByHU2tJ1Ittw74q1XBVThu5LZJj2qnzXr"
     }
     
     struct Path {

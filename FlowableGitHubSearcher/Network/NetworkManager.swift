@@ -56,7 +56,7 @@ extension GithubSearcherAPI: TargetType {
     var headers: [String : String]? {
         var httpHeaders: [String: String]
         httpHeaders = ["Accept": Constants.githubAPI.acceptType,
-                       "Authorization": Constants.githubAPI.authToken]
+                       "Authorization": "ghp_"+Constants.githubAPI.authToken]
         return httpHeaders
     }
     
