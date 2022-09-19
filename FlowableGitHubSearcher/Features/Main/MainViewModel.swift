@@ -51,7 +51,7 @@ final class MainViewModel: MainViewModelInput,
     init(networkService: NetworkService<GithubSearcherAPI> = NetworkService<GithubSearcherAPI>()) {
         let networkInteractor = NetworkInteractor(networkService: networkService)
         
-        repositoryInformations = searchValue.flatMapLatest { searchValue -> Observable<[RepoInfo]> in
+        repositoryInformations = searchValue.distinctUntilChanged().flatMapLatest { searchValue -> Observable<[RepoInfo]> in
             guard searchValue != "" else {
                 LottieManager.shared.stopLottie()
                 return .just([])

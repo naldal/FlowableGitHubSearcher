@@ -153,7 +153,6 @@ class MainViewController: UIViewController, ViewModelBindableType {
             .asDriver()
             .drive(onNext: { [weak self] information in
                 guard let self = self else { return }
-                self.searchField.getTextField()?.text = ""
                 self.view.endEditing(true)
                 input.steps.accept(FlowSteps.detailRepositoryInformationIsRequired(repoName: information.name,
                                                                                    ownerName: information.owner.login)
