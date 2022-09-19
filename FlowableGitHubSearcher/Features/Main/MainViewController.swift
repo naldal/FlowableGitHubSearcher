@@ -86,12 +86,12 @@ class MainViewController: UIViewController, ViewModelBindableType {
         self.configureTableView()
         self.setLayout()
         self.configureConstraints()
-        
-        
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.viewModel.input.viewWillAppear.accept(())
     }
     
@@ -152,7 +152,15 @@ class MainViewController: UIViewController, ViewModelBindableType {
             .asDriver()
             .drive(onNext: { [weak self] information in
                 guard let _ = self else { return }
-                input.steps.accept(FlowSteps.detailRepositoryInformationIsRequired(repoURL: information.htmlURL))
+                print(information)
+                input.steps.accept(FlowSteps.detailRepositoryInformationIsRequired(repoName: information.name, ownerName: information.owner.login))
+            })
+            .disposed(by: self.disposeBag)
+        
+        repositoriesTableView.rx.didScroll
+            .asDriver()
+            .drive(onNext: { _ in
+                self.view.endEditing(false)
             })
             .disposed(by: self.disposeBag)
         
@@ -171,7 +179,7 @@ class MainViewController: UIViewController, ViewModelBindableType {
             }).disposed(by: self.disposeBag)
         
         output.realDataOutput
-            .asObservable()
+            .observe(on: MainScheduler.asyncInstance)
             .bind(to: self.repositoriesTableView.rx.items(cellIdentifier: Constants.CellIdentifier.repositoryInformationCell,
                                                           cellType: RepositoryInformationCell.self)) { [weak self] (index, model, cell) in
                 guard let _ = self else { return }

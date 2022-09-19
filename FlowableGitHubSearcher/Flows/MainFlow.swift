@@ -16,7 +16,6 @@ class MainFlow: Flow {
     }
     
     private lazy var rootViewController: UINavigationController = {
-
         let viewController = UINavigationController()
         return viewController
     }()
@@ -27,10 +26,8 @@ class MainFlow: Flow {
         switch step {
         case .mainSearchIsRequired:
             return transitionToMain()
-        case let .detailRepositoryInformationIsRequired(repoURL):
-            return transitionToDetail(repositoryURL: repoURL)
-        default:
-            return .none
+        case let .detailRepositoryInformationIsRequired(repoName, userName):
+            return transitionToDetail(repositoryName: repoName, userName: userName)
         }
     }
     
@@ -43,12 +40,17 @@ class MainFlow: Flow {
                                                  withNextStepper: mainViewModel))
     }
     
-    private func transitionToDetail(repositoryURL: String) -> FlowContributors {
+    private func transitionToDetail(repositoryName: String, userName: String) -> FlowContributors {
         var detailRepositoryViewController = DetailRepositoryViewController()
-        let detailRepositoryViewModel = DetailRepositoryViewModel(repositoryURL: repositoryURL)
+        let detailRepositoryViewModel = DetailRepositoryViewModel(repositoryName: repositoryName, userName: userName)
         detailRepositoryViewController.bind(to: detailRepositoryViewModel)
+        
+        self.rootViewController.setNavigationBarHidden(false, animated: true)
+        self.rootViewController.navigationBar.tintColor = .white
+        
         self.rootViewController.pushViewController(detailRepositoryViewController, animated: true)
-        return.one(flowContributor: .contribute(withNextPresentable: detailRepositoryViewController, withNextStepper: detailRepositoryViewModel))
+        return.one(flowContributor: .contribute(withNextPresentable: detailRepositoryViewController,
+                                                withNextStepper: detailRepositoryViewModel))
     }
     
 }

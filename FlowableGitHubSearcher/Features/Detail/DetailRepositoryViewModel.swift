@@ -10,8 +10,8 @@ import RxSwift
 import UIKit
 import RxFlow
 
-protocol DetailRepositoryViewModelInput {
-    
+protocol DetailRepositoryViewModelInput: Stepper {
+    var backAction: PublishSubject<Bool> { get }
 }
 
 protocol DetailRepositoryViewModelOutput {
@@ -23,14 +23,12 @@ protocol DetailRepositoryViewModelType {
     var output: DetailRepositoryViewModelOutput { get }
 }
 
-class DetailRepositoryViewModel: Stepper,
-                                 DetailRepositoryViewModelInput,
+class DetailRepositoryViewModel: DetailRepositoryViewModelInput,
                                  DetailRepositoryViewModelOutput,
                                  DetailRepositoryViewModelType {
+    
 
     
-    // MARK: - Steps
-    let steps = PublishRelay<Step>()
     
     // MARK: - Type
     var input: DetailRepositoryViewModelInput { return self }
@@ -40,6 +38,9 @@ class DetailRepositoryViewModel: Stepper,
     
     // MARK: - Input
     
+    let steps = PublishRelay<Step>()
+    var backAction = PublishSubject<Bool>()
+    
     
     
     // MARK: - Output
@@ -48,8 +49,11 @@ class DetailRepositoryViewModel: Stepper,
     
     // MARK: - Init
     
-    init(repositoryURL: String) {
-        print(repositoryURL)
+    init(repositoryName: String, userName: String) {
+        print("~~~>")
+        print(repositoryName)
+        print(userName)
+        
     }
     
 }

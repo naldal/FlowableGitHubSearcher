@@ -61,7 +61,6 @@ final class MainViewModel: MainViewModelInput,
                 return .just([])
             }
             self.searchStartTrigger.onNext(())
-            
             let response = networkInteractor.fetchRepositories(query: searchValue!).map{ $0.items }
             return response
         }.share()

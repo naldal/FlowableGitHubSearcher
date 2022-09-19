@@ -12,9 +12,22 @@ final class DetailRepositoryViewController: UIViewController, ViewModelBindableT
 
     var viewModel: DetailRepositoryViewModel!
     
+    private lazy var btn: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .black
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .redOrange
+        self.view.backgroundColor = .gray
+        
+        self.view.addSubview(btn)
+        btn.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
+            make.width.height.equalTo(200)
+        }
+
     }
     
     func bindViewModel() {
