@@ -15,13 +15,13 @@ struct RepositoryInformation: Codable {
     let htmlURL: String
     let welcomeDescription: String
     let url: String
-    let createdAt, updatedAt, pushedAt: Date
+    let createdAt, updatedAt, pushedAt: String
     let gitURL: String
-    let homepage: String
+    let homepage: String?
     let stargazersCount: Int
     let language: String
     let forksCount, openIssuesCount: Int
-    let topics: [String]
+    let topics: [String?]
     let openIssues, subscribersCount: Int
 
     enum CodingKeys: String, CodingKey {

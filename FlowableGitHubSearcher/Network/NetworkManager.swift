@@ -13,7 +13,6 @@ import RxSwift
 enum GithubSearcherAPI {
     case searchRepositories(query: String)
     case getRepository(repo: String, user: String)
-    case searchUserInformations
 }
 
 extension GithubSearcherAPI: TargetType {
@@ -26,15 +25,13 @@ extension GithubSearcherAPI: TargetType {
         case .searchRepositories:
             return Constants.Path.searchRepositoriesPath
         case let .getRepository(repo, user):
-            return "/\(repo)/\(user)"
-        case .searchUserInformations:
-            return ""
+            return Constants.Path.searchRepositoryPath+"/\(user)/\(repo)"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .searchRepositories, .getRepository, .searchUserInformations:
+        case .searchRepositories, .getRepository:
             return Method.get
         }
     }
@@ -49,9 +46,6 @@ extension GithubSearcherAPI: TargetType {
             
         case .getRepository:
             return .requestPlain
-        case .searchUserInformations:
-            return .requestPlain
-    
         }
     }
     

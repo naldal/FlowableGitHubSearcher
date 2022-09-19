@@ -18,6 +18,7 @@ class Constants {
     
     struct Path {
         static let searchRepositoriesPath = "/search/repositories"
+        static let searchRepositoryPath = "/repos"
     }
     
     struct CellIdentifier {

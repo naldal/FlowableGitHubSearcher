@@ -48,9 +48,6 @@ class MainFlow: Flow {
         let detailRepositoryViewModel = DetailRepositoryViewModel(repositoryName: repositoryName, userName: userName)
         detailRepositoryViewController.bind(to: detailRepositoryViewModel)
         self.rootViewController.pushViewController(detailRepositoryViewController, animated: true)
-//        return.one(flowContributor: .contribute(withNextPresentable: detailRepositoryViewController,
-//                                                withNextStepper: detailRepositoryViewModel)
-//        )
     }
     
 }
