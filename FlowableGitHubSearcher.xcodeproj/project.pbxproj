@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA45FEF828D6EB9D002F80A9 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA45FEF728D6EB9D002F80A9 /* UILabel+Extensions.swift */; };
+		DA45FEFB28D7444E002F80A9 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = DA45FEFA28D7444E002F80A9 /* Lottie */; };
+		DA45FEFE28D74816002F80A9 /* loadingLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = DA45FEFD28D74816002F80A9 /* loadingLottie.json */; };
+		DA45FF0028D748A0002F80A9 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA45FEFF28D748A0002F80A9 /* String+Extensions.swift */; };
+		DA45FF0228D760EF002F80A9 /* DetailFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA45FF0128D760EF002F80A9 /* DetailFlow.swift */; };
 		DA5765C228D402C6004E7993 /* ViewModelBindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5765C128D402C6004E7993 /* ViewModelBindableType.swift */; };
 		DA5765C628D412EA004E7993 /* DetailRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5765C528D412EA004E7993 /* DetailRepositoryViewController.swift */; };
 		DA5765C828D41311004E7993 /* DetailRepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5765C728D41311004E7993 /* DetailRepositoryViewModel.swift */; };
@@ -22,7 +27,6 @@
 		DA5EDDCE28D36AE400D00510 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA5EDDCD28D36AE400D00510 /* Assets.xcassets */; };
 		DA5EDDD128D36AE400D00510 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA5EDDCF28D36AE400D00510 /* LaunchScreen.storyboard */; };
 		DA5EDDE028D36B1600D00510 /* FlowSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDDD828D36B1600D00510 /* FlowSteps.swift */; };
-		DA5EDDE128D36B1600D00510 /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDDD928D36B1600D00510 /* AppFlow.swift */; };
 		DA5EDDE228D36B1600D00510 /* MainFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDDDA28D36B1600D00510 /* MainFlow.swift */; };
 		DA5EDDEA28D36B5D00D00510 /* RxFlow in Frameworks */ = {isa = PBXBuildFile; productRef = DA5EDDE928D36B5D00D00510 /* RxFlow */; };
 		DA5EDDED28D36B7900D00510 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DA5EDDEC28D36B7900D00510 /* Alamofire */; };
@@ -46,9 +50,14 @@
 		DA5EDE2F28D3782600D00510 /* UserSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE2E28D3782600D00510 /* UserSearch.swift */; };
 		DA5EDE3128D3790F00D00510 /* RepoSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE3028D3790F00D00510 /* RepoSearch.swift */; };
 		DA5EDE3428D379FC00D00510 /* EnumType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE3328D379FC00D00510 /* EnumType.swift */; };
+		DAE41C9728D805150091ADD7 /* LottieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE41C9628D805150091ADD7 /* LottieManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA45FEF728D6EB9D002F80A9 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
+		DA45FEFD28D74816002F80A9 /* loadingLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingLottie.json; sourceTree = "<group>"; };
+		DA45FEFF28D748A0002F80A9 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		DA45FF0128D760EF002F80A9 /* DetailFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFlow.swift; sourceTree = "<group>"; };
 		DA5765C128D402C6004E7993 /* ViewModelBindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBindableType.swift; sourceTree = "<group>"; };
 		DA5765C528D412EA004E7993 /* DetailRepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRepositoryViewController.swift; sourceTree = "<group>"; };
 		DA5765C728D41311004E7993 /* DetailRepositoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRepositoryViewModel.swift; sourceTree = "<group>"; };
@@ -66,7 +75,6 @@
 		DA5EDDD028D36AE400D00510 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA5EDDD228D36AE400D00510 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA5EDDD828D36B1600D00510 /* FlowSteps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowSteps.swift; sourceTree = "<group>"; };
-		DA5EDDD928D36B1600D00510 /* AppFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
 		DA5EDDDA28D36B1600D00510 /* MainFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlow.swift; sourceTree = "<group>"; };
 		DA5EDE0528D36E9A00D00510 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		DA5EDE0A28D370C100D00510 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
@@ -81,6 +89,7 @@
 		DA5EDE2E28D3782600D00510 /* UserSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearch.swift; sourceTree = "<group>"; };
 		DA5EDE3028D3790F00D00510 /* RepoSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSearch.swift; sourceTree = "<group>"; };
 		DA5EDE3328D379FC00D00510 /* EnumType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumType.swift; sourceTree = "<group>"; };
+		DAE41C9628D805150091ADD7 /* LottieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +102,7 @@
 				DA5EDDF928D36D3400D00510 /* Then in Frameworks */,
 				DA5EDE1728D3722B00D00510 /* Moya in Frameworks */,
 				DA5EDDF028D36B8B00D00510 /* SnapKit in Frameworks */,
+				DA45FEFB28D7444E002F80A9 /* Lottie in Frameworks */,
 				DA5EDDEA28D36B5D00D00510 /* RxFlow in Frameworks */,
 				DA5EDE1B28D3722B00D00510 /* RxMoya in Frameworks */,
 				DA5EDDED28D36B7900D00510 /* Alamofire in Frameworks */,
@@ -103,6 +113,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA45FEFC28D74808002F80A9 /* LottieAssets */ = {
+			isa = PBXGroup;
+			children = (
+				DA45FEFD28D74816002F80A9 /* loadingLottie.json */,
+			);
+			path = LottieAssets;
+			sourceTree = "<group>";
+		};
 		DA5765C328D412CE004E7993 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +176,7 @@
 		DA5EDDC328D36AE300D00510 /* FlowableGitHubSearcher */ = {
 			isa = PBXGroup;
 			children = (
+				DA45FEFC28D74808002F80A9 /* LottieAssets */,
 				DA5765CB28D419CC004E7993 /* Constants */,
 				DA5EDE0828D36EB800D00510 /* Flows */,
 				DA5EDE0728D36EAB00D00510 /* Steps */,
@@ -194,8 +213,8 @@
 		DA5EDE0828D36EB800D00510 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
-				DA5EDDD928D36B1600D00510 /* AppFlow.swift */,
 				DA5EDDDA28D36B1600D00510 /* MainFlow.swift */,
+				DA45FF0128D760EF002F80A9 /* DetailFlow.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -220,6 +239,8 @@
 				DA5EDE2828D3754500D00510 /* UIFont+Extensions.swift */,
 				DA5EDE2A28D3756C00D00510 /* UIView+Extensions.swift */,
 				DA5765C928D413F5004E7993 /* UISearchBar+Extensions.swift */,
+				DA45FEF728D6EB9D002F80A9 /* UILabel+Extensions.swift */,
+				DA45FEFF28D748A0002F80A9 /* String+Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -249,6 +270,7 @@
 			children = (
 				DA5EDE3328D379FC00D00510 /* EnumType.swift */,
 				DA5765C128D402C6004E7993 /* ViewModelBindableType.swift */,
+				DAE41C9628D805150091ADD7 /* LottieManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -279,6 +301,7 @@
 				DA5EDE1828D3722B00D00510 /* ReactiveMoya */,
 				DA5EDE1A28D3722B00D00510 /* RxMoya */,
 				DA5EDE2228D373EF00D00510 /* SwiftyBeaver */,
+				DA45FEFA28D7444E002F80A9 /* Lottie */,
 			);
 			productName = FlowableGitHubSearcher;
 			productReference = DA5EDDC128D36AE300D00510 /* FlowableGitHubSearcher.app */;
@@ -316,6 +339,7 @@
 				DA5EDDF728D36D3400D00510 /* XCRemoteSwiftPackageReference "Then" */,
 				DA5EDE1528D3722B00D00510 /* XCRemoteSwiftPackageReference "Moya" */,
 				DA5EDE2128D373EF00D00510 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
+				DA45FEF928D7444E002F80A9 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = DA5EDDC228D36AE300D00510 /* Products */;
 			projectDirPath = "";
@@ -333,6 +357,7 @@
 			files = (
 				DA5EDDD128D36AE400D00510 /* LaunchScreen.storyboard in Resources */,
 				DA5EDDCE28D36AE400D00510 /* Assets.xcassets in Resources */,
+				DA45FEFE28D74816002F80A9 /* loadingLottie.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA5765D428D428A9004E7993 /* NetworkManager.swift in Sources */,
+				DAE41C9728D805150091ADD7 /* LottieManager.swift in Sources */,
 				DA5765CF28D419ED004E7993 /* Constants.swift in Sources */,
 				DA5EDDC928D36AE300D00510 /* MainViewController.swift in Sources */,
 				DA5EDDE028D36B1600D00510 /* FlowSteps.swift in Sources */,
@@ -353,6 +379,7 @@
 				DA5765C228D402C6004E7993 /* ViewModelBindableType.swift in Sources */,
 				DA5EDDC528D36AE300D00510 /* AppDelegate.swift in Sources */,
 				DA5EDE2B28D3756C00D00510 /* UIView+Extensions.swift in Sources */,
+				DA45FF0028D748A0002F80A9 /* String+Extensions.swift in Sources */,
 				DA5765CA28D413F5004E7993 /* UISearchBar+Extensions.swift in Sources */,
 				DA5765D628D46694004E7993 /* NetworkInteractor.swift in Sources */,
 				DA5EDE0D28D3712C00D00510 /* NetworkService.swift in Sources */,
@@ -363,10 +390,11 @@
 				DA5EDE1E28D372B800D00510 /* Observable+Extensions.swift in Sources */,
 				DA5765D228D41C88004E7993 /* RepositoryInformationCell.swift in Sources */,
 				DA5EDE2728D3751700D00510 /* UITextField+Extensions.swift in Sources */,
-				DA5EDDE128D36B1600D00510 /* AppFlow.swift in Sources */,
+				DA45FEF828D6EB9D002F80A9 /* UILabel+Extensions.swift in Sources */,
 				DA5EDE2028D3738D00D00510 /* NetworkErrorBuilder.swift in Sources */,
 				DA5EDE0B28D370C100D00510 /* NetworkSession.swift in Sources */,
 				DA5EDE1428D3717C00D00510 /* CommonResponse.swift in Sources */,
+				DA45FF0228D760EF002F80A9 /* DetailFlow.swift in Sources */,
 				DA5765C628D412EA004E7993 /* DetailRepositoryViewController.swift in Sources */,
 				DA5765C828D41311004E7993 /* DetailRepositoryViewModel.swift in Sources */,
 				DA5EDDC728D36AE300D00510 /* SceneDelegate.swift in Sources */,
@@ -582,6 +610,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DA45FEF928D7444E002F80A9 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = exactVersion;
+				version = 3.4.3;
+			};
+		};
 		DA5EDDE828D36B5D00D00510 /* XCRemoteSwiftPackageReference "RxFlow" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxFlow.git";
@@ -641,6 +677,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DA45FEFA28D7444E002F80A9 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA45FEF928D7444E002F80A9 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		DA5EDDE928D36B5D00D00510 /* RxFlow */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DA5EDDE828D36B5D00D00510 /* XCRemoteSwiftPackageReference "RxFlow" */;

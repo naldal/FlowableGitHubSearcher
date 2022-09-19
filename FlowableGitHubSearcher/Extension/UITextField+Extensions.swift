@@ -8,16 +8,17 @@
 import UIKit
 
 extension UITextField {
-    func setTextFieldOptions(color: UIColor = .black,
+    
+    func setTextFieldOptions(textColor: UIColor = .black,
+                             backgroundColor: UIColor = .white,
                              font: UIFont = UIFont.systemFont(ofSize: 10, weight: .regular),
                              align: NSTextAlignment = .natural,
                              keyboardType: UIKeyboardType = .default) {
-        self.textColor = color
+        self.textColor = textColor
+        self.backgroundColor = backgroundColor
         self.font = font
         self.textAlignment = align
-        
         self.keyboardType = keyboardType
-        
     }
     
     func setPlaceHolder(text: String = "", color: UIColor = .black) {

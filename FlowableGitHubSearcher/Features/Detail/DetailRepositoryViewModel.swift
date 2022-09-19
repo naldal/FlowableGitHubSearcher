@@ -23,7 +23,8 @@ protocol DetailRepositoryViewModelType {
     var output: DetailRepositoryViewModelOutput { get }
 }
 
-class DetailRepositoryViewModel: DetailRepositoryViewModelInput,
+class DetailRepositoryViewModel: Stepper,
+                                 DetailRepositoryViewModelInput,
                                  DetailRepositoryViewModelOutput,
                                  DetailRepositoryViewModelType {
 
@@ -47,8 +48,8 @@ class DetailRepositoryViewModel: DetailRepositoryViewModelInput,
     
     // MARK: - Init
     
-    init() {
-      
+    init(repositoryURL: String) {
+        print(repositoryURL)
     }
     
 }

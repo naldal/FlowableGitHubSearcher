@@ -5,8 +5,8 @@
 //  Created by 송하민 on 2022/09/15.
 //
 
-import Then
-import Foundation
+import RxSwift
+import RxCocoa
 import RxFlow
 import UIKit
 
@@ -15,9 +15,9 @@ class MainFlow: Flow {
         return self.rootViewController
     }
     
-    private lazy var rootViewController: MainViewController = {
-        var viewController = MainViewController()
-        viewController.bind(to: MainViewModel())
+    private lazy var rootViewController: UINavigationController = {
+
+        let viewController = UINavigationController()
         return viewController
     }()
     
@@ -26,17 +26,40 @@ class MainFlow: Flow {
         
         switch step {
         case .mainSearchIsRequired:
-            return test()
+            return transitionToMain()
+        case let .detailRepositoryInformationIsRequired(repoURL):
+            return transitionToDetail(repositoryURL: repoURL)
         default:
             return .none
         }
     }
     
-    private func test() -> FlowContributors {
-        self.rootViewController.title = "this is test"
-//        return .one(flowContributor: .contribute(withNextPresentable: testVC, withNextStepper: testVC.viewModel))
-        return .none
+    private func transitionToMain() -> FlowContributors {
+        var mainViewController = MainViewController()
+        let mainViewModel = MainViewModel()
+        mainViewController.bind(to: mainViewModel)
+        self.rootViewController.setViewControllers([mainViewController], animated: true)
+        return .one(flowContributor: .contribute(withNextPresentable: mainViewController,
+                                                 withNextStepper: mainViewModel))
+    }
+    
+    private func transitionToDetail(repositoryURL: String) -> FlowContributors {
+        var detailRepositoryViewController = DetailRepositoryViewController()
+        let detailRepositoryViewModel = DetailRepositoryViewModel(repositoryURL: repositoryURL)
+        detailRepositoryViewController.bind(to: detailRepositoryViewModel)
+        self.rootViewController.pushViewController(detailRepositoryViewController, animated: true)
+        return.one(flowContributor: .contribute(withNextPresentable: detailRepositoryViewController, withNextStepper: detailRepositoryViewModel))
     }
     
 }
 
+class MainStepper: Stepper {
+    
+    let steps = PublishRelay<Step>()
+    private let disposeBag = DisposeBag()
+    
+    var initialStep: Step {
+        return FlowSteps.mainSearchIsRequired
+    }
+    
+}

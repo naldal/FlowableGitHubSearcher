@@ -42,7 +42,9 @@ extension GithubSearcherAPI: TargetType {
     var task: Task {
         switch self {
         case let .searchRepositories(query):
-            let params: [String: Any] = ["q": query]
+            let params: [String: Any] = ["q": query,
+                                         "per_page": 20,
+                                         "page": 1]
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
             
         case .getRepository:

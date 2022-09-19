@@ -29,11 +29,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             log.debug("did navigate to flow=\(flow) and step=\(step)")
         }).disposed(by: self.disposeBag)
         
-        let appFlow = AppFlow()
+        let mainFlow = MainFlow()
         
-        self.coordinator.coordinate(flow: appFlow, with: AppStepper())
+        self.coordinator.coordinate(flow: mainFlow, with: MainStepper())
         
-        Flows.use(appFlow, when: .created) { root in
+        Flows.use(mainFlow, when: .created) { root in
             self.window?.rootViewController = root
             self.window?.makeKeyAndVisible()
         }

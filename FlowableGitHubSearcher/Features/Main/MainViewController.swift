@@ -5,11 +5,13 @@
 //  Created by 송하민 on 2022/09/15.
 //
 
+import Lottie
 import Then
 import SnapKit
 import RxCocoa
 import RxSwift
 import UIKit
+import RxFlow
 
 class MainViewController: UIViewController, ViewModelBindableType {
     
@@ -26,40 +28,48 @@ class MainViewController: UIViewController, ViewModelBindableType {
         return view
     }()
     
+    private var loadingAnimationView = LottieManager.shared.managedLottieAnimation
+    
     private let searchField = UISearchBar().then {
-        $0.backgroundColor = .red
-        $0.placeholder = "검색어를 입력해주세요"
-        
         $0.positionAdjustment(for: .search)
         $0.searchTextPositionAdjustment = UIOffset(horizontal: 10, vertical: .zero)
         $0.setPositionAdjustment(UIOffset(horizontal: 10, vertical: .zero), for: .search)
         
-        $0.isTranslucent = false
-        $0.barTintColor = .white
-        $0.getTextField()?.backgroundColor = .gray
+        $0.setSearchBarOptions(tintColor: .greenishGrey, cornerRadius: 25, borderWidth: 0.8, borderColor: .brightOrange)
         
-        $0.layer.cornerRadius = 25
-        $0.layer.borderWidth = 0.8
-        $0.layer.borderColor = UIColor.brightOrange.cgColor
-        $0.clipsToBounds = true
-        
-        let textField = $0.value(forKey: "searchField") as? UITextField
-        textField?.textColor = .charcoal
-        textField?.clearButtonMode = .whileEditing
+        if let textField = $0.getTextField() {
+            textField.setTextFieldOptions(textColor: .charcoal,
+                                          font: .appleSDGothicNeo(weight: .medium,
+                                                                  size: 16),
+                                          align: .left,
+                                          keyboardType: .alphabet
+            )
+            textField.clearButtonMode = .whileEditing
+            textField.setPlaceHolder(text: "검색어를 입력해주세요", color: .greenishGrey)
+            
+            if let glassIconView = textField.leftView as? UIImageView {
+                glassIconView.image = glassIconView.image?.withRenderingMode(.alwaysTemplate)
+                glassIconView.tintColor = .greenishGrey
+            }
+        }
     }
     
     private let repositoriesTableView = UITableView().then {
-        $0.backgroundColor = .gray
-        $0.estimatedRowHeight = UITableView.automaticDimension
-        $0.rowHeight = 84
+        $0.showsVerticalScrollIndicator = false
         $0.separatorStyle = .singleLine
         $0.layoutMargins = .zero
-        $0.register(UITableViewCell.self, forCellReuseIdentifier: "cell") // TODO
+        $0.backgroundColor = .white
         $0.bounces = false
     }
     
     
     // MARK: - Component Options
+    
+    private func configureTableView() {
+        self.repositoriesTableView.delegate = self
+        self.repositoriesTableView.register(RepositoryInformationCell.self, forCellReuseIdentifier: Constants.CellIdentifier.repositoryInformationCell)
+        self.repositoriesTableView.separatorInset = UIEdgeInsets.zero
+    }
 
     // MARK: - DisposeBag
     
@@ -70,10 +80,14 @@ class MainViewController: UIViewController, ViewModelBindableType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
         
+        LottieManager.shared.setLottie(animation: "loadingLottie".lottie, mode: .loop)
+        
+        self.configureTableView()
         self.setLayout()
         self.configureConstraints()
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,7 +100,12 @@ class MainViewController: UIViewController, ViewModelBindableType {
     
     private func setLayout() {
         self.view.addSubview(baseView)
-        baseView.addSubviews([searchField, repositoriesTableView])
+        baseView.addSubviews([searchField,
+                              repositoriesTableView])
+    }
+    
+    private func setLottieLayout() {
+        repositoriesTableView.addSubview(loadingAnimationView)
     }
     
     
@@ -101,27 +120,74 @@ class MainViewController: UIViewController, ViewModelBindableType {
                 make.leading.trailing.equalToSuperview().inset(16)
                 make.height.equalTo(90)
             }
-            
             repositoriesTableView.snp.makeConstraints { make in
                 make.top.equalTo(searchField.snp.bottom).offset(10)
                 make.leading.trailing.equalToSuperview().inset(16)
                 make.bottom.equalToSuperview()
             }
         }
-
+    }
+    
+    private func configureLottieConstraints() {
+        loadingAnimationView.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
+            make.height.width.equalTo(150)
+        }
     }
 
     // MARK: - Bind
     
     func bindViewModel() {
+        let input = self.viewModel.input
         let output = self.viewModel.output
         
-        output.realDataOutput
-            .drive(onNext: { repos in
-                print("repose ~> \(repos)")
+        // MARK: Input
+        
+        searchField.getTextField()?.rx.value
+            .bind(to: input.searchValue)
+            .disposed(by: self.disposeBag)
+        
+        repositoriesTableView.rx
+            .modelSelected(RepoInfo.self)
+            .asDriver()
+            .drive(onNext: { [weak self] information in
+                guard let _ = self else { return }
+                input.steps.accept(FlowSteps.detailRepositoryInformationIsRequired(repoURL: information.htmlURL))
             })
+            .disposed(by: self.disposeBag)
+        
+        
+        // MARK: Output
+        
+        output.searchStartTrigger
+            .asDriverOnErrorJustComplete()
+            .drive(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                if !self.repositoriesTableView.subviews.contains(self.loadingAnimationView) {
+                    self.setLottieLayout()
+                    self.configureLottieConstraints()
+                }
+                LottieManager.shared.startLottie()
+            }).disposed(by: self.disposeBag)
+        
+        output.realDataOutput
+            .asObservable()
+            .bind(to: self.repositoriesTableView.rx.items(cellIdentifier: Constants.CellIdentifier.repositoryInformationCell,
+                                                          cellType: RepositoryInformationCell.self)) { [weak self] (index, model, cell) in
+                guard let _ = self else { return }
+                cell.contentView.clipsToBounds = false
+                cell.clipsToBounds = true
+                cell.contentView.backgroundColor = .clear
+                cell.bind(repositoryInfo: model)
+                LottieManager.shared.stopLottie()
+            }
             .disposed(by: self.disposeBag)
     }
     
 }
 
+extension MainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 84
+    }
+}

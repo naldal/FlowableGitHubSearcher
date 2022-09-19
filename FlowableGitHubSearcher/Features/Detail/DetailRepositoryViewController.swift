@@ -8,9 +8,16 @@
 import RxSwift
 import UIKit
 
-final class DetailRepositoryViewController: UIViewController {
+final class DetailRepositoryViewController: UIViewController, ViewModelBindableType {
+
+    var viewModel: DetailRepositoryViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .redOrange
+    }
+    
+    func bindViewModel() {
+        
     }
 }

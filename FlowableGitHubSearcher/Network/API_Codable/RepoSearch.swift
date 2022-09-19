@@ -8,8 +8,11 @@
 import Foundation
 
 struct RepoSearchResponse: Codable {
+    /// 레포 갯수
     let totalCount: Int
+    /// Time-out 여부
     let incompleteResults: Bool
+    /// 레포 배열
     let items: [RepoInfo]
 
     enum CodingKeys: String, CodingKey {
@@ -21,38 +24,52 @@ struct RepoSearchResponse: Codable {
 
 // MARK: - RepoInfo
 
+/// 레포지토리 객체
 struct RepoInfo: Codable {
-    
+    /// 고유 아이디
     let id: Int
-    let nodeID, name, fullName: String
+    /// 레포 이름
+    let name: String
+    /// 레포 Private 여부
     let itemPrivate: Bool
+    /// 레포 소유자
     let owner: Owner
+    /// 레포 URL
     let htmlURL: String
+    /// 레포 Description
     let itemDescription: String?
+    /// Star 수
+    let stargazersCount: Int
+    /// Watch 수
+    let watchersCount: Int
     
     enum CodingKeys: String, CodingKey {
         case id
-        case nodeID = "node_id"
         case name
-        case fullName = "full_name"
         case itemPrivate = "private"
         case owner
         case htmlURL = "html_url"
         case itemDescription = "description"
+        case stargazersCount = "stargazers_count"
+        case watchersCount = "watchers_count"
     }
 }
 
 // MARK: - Owner
 
+/// 계정정보
 struct Owner: Codable {
     let login: String
     let id: Int
-    let nodeID: String
     let avatarURL: String
     let gravatarID: String
-    let url, htmlURL, followersURL: String
-    let followingURL, gistsURL, starredURL: String
-    let subscriptionsURL, organizationsURL, reposURL: String
+    let url: String
+    let htmlURL: String
+    let gistsURL: String
+    let starredURL: String
+    let subscriptionsURL: String
+    let organizationsURL: String
+    let reposURL: String
     let eventsURL: String
     let receivedEventsURL: String
     let type: String
@@ -60,13 +77,10 @@ struct Owner: Codable {
 
     enum CodingKeys: String, CodingKey {
         case login, id
-        case nodeID = "node_id"
         case avatarURL = "avatar_url"
         case gravatarID = "gravatar_id"
         case url
         case htmlURL = "html_url"
-        case followersURL = "followers_url"
-        case followingURL = "following_url"
         case gistsURL = "gists_url"
         case starredURL = "starred_url"
         case subscriptionsURL = "subscriptions_url"
@@ -76,5 +90,6 @@ struct Owner: Codable {
         case receivedEventsURL = "received_events_url"
         case type
         case siteAdmin = "site_admin"
+        
     }
 }

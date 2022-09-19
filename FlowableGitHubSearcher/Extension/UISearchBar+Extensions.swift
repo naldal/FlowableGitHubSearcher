@@ -8,6 +8,15 @@
 import UIKit
 
 extension UISearchBar {
+    
+    func setSearchBarOptions(tintColor: UIColor, cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: UIColor) {
+        self.barTintColor = tintColor
+        self.layer.cornerRadius = cornerRadius
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor.cgColor
+        self.isTranslucent = false
+        self.clipsToBounds = true
+    }
 
     func getTextField() -> UITextField? {
         if #available(iOS 13.0, *) {
@@ -23,7 +32,6 @@ extension UISearchBar {
             }
 
             return textField
-
         }
     }
 }

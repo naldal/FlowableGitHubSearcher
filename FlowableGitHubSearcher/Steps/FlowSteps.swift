@@ -8,8 +8,8 @@
 import RxFlow
 
 enum FlowSteps: Step {
-    /// Root 화면으로 이동
-    case basicViewControllerIsRequired
-    /// 검색화면 bind
+    /// 메인검색 화면으로 이동
     case mainSearchIsRequired
+    /// 상세 레포지토리 화면으로 이동
+    case detailRepositoryInformationIsRequired(repoURL: String)
 }
