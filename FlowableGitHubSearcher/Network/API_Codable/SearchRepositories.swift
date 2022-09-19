@@ -40,8 +40,8 @@ struct RepoInfo: Codable {
     let itemDescription: String?
     /// Star 수
     let stargazersCount: Int
-    /// Watch 수
-    let watchersCount: Int
+    /// Fork 수
+    let forksCount: Int
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -51,7 +51,7 @@ struct RepoInfo: Codable {
         case htmlURL = "html_url"
         case itemDescription = "description"
         case stargazersCount = "stargazers_count"
-        case watchersCount = "watchers_count"
+        case forksCount = "forks"
     }
 }
 

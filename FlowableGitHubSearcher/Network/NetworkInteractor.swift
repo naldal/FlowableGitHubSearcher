@@ -20,8 +20,17 @@ class NetworkInteractor: NetworkInteractable {
         self.networkService = networkService
     }
     
+    /// 레포지토리 검색조회
     func fetchRepositories(query: String) -> Observable<RepoSearchResponse> {
-        networkService.defaultRequest(to: .searchRepositories(query: query), decode: RepoSearchResponse.self)
+        networkService.defaultRequest(to: .searchRepositories(query: query),
+                                      decode: RepoSearchResponse.self)
+    }
+    
+    /// 레포지토리 단건조회
+    func fetchRepository(repoName: String, userName: String) -> Observable<RepositoryInformation> {
+        networkService.defaultRequest(to: .getRepository(repo: repoName,
+                                                         user: userName),
+                                      decode: RepositoryInformation.self)
     }
     
 }

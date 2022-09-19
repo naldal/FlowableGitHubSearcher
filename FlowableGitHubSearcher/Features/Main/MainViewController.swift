@@ -35,7 +35,10 @@ class MainViewController: UIViewController, ViewModelBindableType {
         $0.searchTextPositionAdjustment = UIOffset(horizontal: 10, vertical: .zero)
         $0.setPositionAdjustment(UIOffset(horizontal: 10, vertical: .zero), for: .search)
         
-        $0.setSearchBarOptions(tintColor: .greenishGrey, cornerRadius: 25, borderWidth: 0.8, borderColor: .brightOrange)
+        $0.setSearchBarOptions(tintColor: .white,
+                               cornerRadius: 21,
+                               borderWidth: 0.8,
+                               borderColor: .brightOrange)
         
         if let textField = $0.getTextField() {
             textField.setTextFieldOptions(textColor: .charcoal,
@@ -86,13 +89,11 @@ class MainViewController: UIViewController, ViewModelBindableType {
         self.configureTableView()
         self.setLayout()
         self.configureConstraints()
-    
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        self.viewModel.input.viewWillAppear.accept(())
     }
     
     
@@ -118,7 +119,7 @@ class MainViewController: UIViewController, ViewModelBindableType {
             searchField.snp.makeConstraints { make in
                 make.top.equalToSuperview().inset(Constants.DeviceScreen.SAFE_AREA_TOP)
                 make.leading.trailing.equalToSuperview().inset(16)
-                make.height.equalTo(90)
+                make.height.equalTo(50)
             }
             repositoriesTableView.snp.makeConstraints { make in
                 make.top.equalTo(searchField.snp.bottom).offset(10)
@@ -151,9 +152,12 @@ class MainViewController: UIViewController, ViewModelBindableType {
             .modelSelected(RepoInfo.self)
             .asDriver()
             .drive(onNext: { [weak self] information in
-                guard let _ = self else { return }
-                print(information)
-                input.steps.accept(FlowSteps.detailRepositoryInformationIsRequired(repoName: information.name, ownerName: information.owner.login))
+                guard let self = self else { return }
+                self.searchField.getTextField()?.text = ""
+                self.view.endEditing(true)
+                input.steps.accept(FlowSteps.detailRepositoryInformationIsRequired(repoName: information.name,
+                                                                                   ownerName: information.owner.login)
+                )
             })
             .disposed(by: self.disposeBag)
         
@@ -176,9 +180,10 @@ class MainViewController: UIViewController, ViewModelBindableType {
                     self.configureLottieConstraints()
                 }
                 LottieManager.shared.startLottie()
-            }).disposed(by: self.disposeBag)
+            })
+            .disposed(by: self.disposeBag)
         
-        output.realDataOutput
+        output.repositoryInformations
             .observe(on: MainScheduler.asyncInstance)
             .bind(to: self.repositoriesTableView.rx.items(cellIdentifier: Constants.CellIdentifier.repositoryInformationCell,
                                                           cellType: RepositoryInformationCell.self)) { [weak self] (index, model, cell) in

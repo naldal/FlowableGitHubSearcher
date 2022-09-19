@@ -21,6 +21,7 @@
 		DA5765D228D41C88004E7993 /* RepositoryInformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5765D128D41C88004E7993 /* RepositoryInformationCell.swift */; };
 		DA5765D428D428A9004E7993 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5765D328D428A9004E7993 /* NetworkManager.swift */; };
 		DA5765D628D46694004E7993 /* NetworkInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5765D528D46694004E7993 /* NetworkInteractor.swift */; };
+		DA5DC50E28D8B0D600A3D6E4 /* RepositoryInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5DC50D28D8B0D600A3D6E4 /* RepositoryInformation.swift */; };
 		DA5EDDC528D36AE300D00510 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDDC428D36AE300D00510 /* AppDelegate.swift */; };
 		DA5EDDC728D36AE300D00510 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDDC628D36AE300D00510 /* SceneDelegate.swift */; };
 		DA5EDDC928D36AE300D00510 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDDC828D36AE300D00510 /* MainViewController.swift */; };
@@ -48,7 +49,7 @@
 		DA5EDE2928D3754500D00510 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE2828D3754500D00510 /* UIFont+Extensions.swift */; };
 		DA5EDE2B28D3756C00D00510 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE2A28D3756C00D00510 /* UIView+Extensions.swift */; };
 		DA5EDE2F28D3782600D00510 /* UserSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE2E28D3782600D00510 /* UserSearch.swift */; };
-		DA5EDE3128D3790F00D00510 /* RepoSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE3028D3790F00D00510 /* RepoSearch.swift */; };
+		DA5EDE3128D3790F00D00510 /* SearchRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE3028D3790F00D00510 /* SearchRepositories.swift */; };
 		DA5EDE3428D379FC00D00510 /* EnumType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE3328D379FC00D00510 /* EnumType.swift */; };
 		DAE41C9728D805150091ADD7 /* LottieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE41C9628D805150091ADD7 /* LottieManager.swift */; };
 /* End PBXBuildFile section */
@@ -67,6 +68,7 @@
 		DA5765D128D41C88004E7993 /* RepositoryInformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryInformationCell.swift; sourceTree = "<group>"; };
 		DA5765D328D428A9004E7993 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		DA5765D528D46694004E7993 /* NetworkInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInteractor.swift; sourceTree = "<group>"; };
+		DA5DC50D28D8B0D600A3D6E4 /* RepositoryInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryInformation.swift; sourceTree = "<group>"; };
 		DA5EDDC128D36AE300D00510 /* FlowableGitHubSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowableGitHubSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA5EDDC428D36AE300D00510 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA5EDDC628D36AE300D00510 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,7 +89,7 @@
 		DA5EDE2828D3754500D00510 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		DA5EDE2A28D3756C00D00510 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		DA5EDE2E28D3782600D00510 /* UserSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearch.swift; sourceTree = "<group>"; };
-		DA5EDE3028D3790F00D00510 /* RepoSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSearch.swift; sourceTree = "<group>"; };
+		DA5EDE3028D3790F00D00510 /* SearchRepositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositories.swift; sourceTree = "<group>"; };
 		DA5EDE3328D379FC00D00510 /* EnumType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumType.swift; sourceTree = "<group>"; };
 		DAE41C9628D805150091ADD7 /* LottieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -260,7 +262,8 @@
 			isa = PBXGroup;
 			children = (
 				DA5EDE2E28D3782600D00510 /* UserSearch.swift */,
-				DA5EDE3028D3790F00D00510 /* RepoSearch.swift */,
+				DA5EDE3028D3790F00D00510 /* SearchRepositories.swift */,
+				DA5DC50D28D8B0D600A3D6E4 /* RepositoryInformation.swift */,
 			);
 			path = API_Codable;
 			sourceTree = "<group>";
@@ -386,7 +389,7 @@
 				DA5EDE3428D379FC00D00510 /* EnumType.swift in Sources */,
 				DA5765CD28D419D7004E7993 /* Constants+UI.swift in Sources */,
 				DA5EDE2F28D3782600D00510 /* UserSearch.swift in Sources */,
-				DA5EDE3128D3790F00D00510 /* RepoSearch.swift in Sources */,
+				DA5EDE3128D3790F00D00510 /* SearchRepositories.swift in Sources */,
 				DA5EDE1E28D372B800D00510 /* Observable+Extensions.swift in Sources */,
 				DA5765D228D41C88004E7993 /* RepositoryInformationCell.swift in Sources */,
 				DA5EDE2728D3751700D00510 /* UITextField+Extensions.swift in Sources */,
@@ -396,6 +399,7 @@
 				DA5EDE1428D3717C00D00510 /* CommonResponse.swift in Sources */,
 				DA45FF0228D760EF002F80A9 /* DetailFlow.swift in Sources */,
 				DA5765C628D412EA004E7993 /* DetailRepositoryViewController.swift in Sources */,
+				DA5DC50E28D8B0D600A3D6E4 /* RepositoryInformation.swift in Sources */,
 				DA5765C828D41311004E7993 /* DetailRepositoryViewModel.swift in Sources */,
 				DA5EDDC728D36AE300D00510 /* SceneDelegate.swift in Sources */,
 				DA5EDE0628D36E9A00D00510 /* MainViewModel.swift in Sources */,

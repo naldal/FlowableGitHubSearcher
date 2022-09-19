@@ -27,7 +27,8 @@ class MainFlow: Flow {
         case .mainSearchIsRequired:
             return transitionToMain()
         case let .detailRepositoryInformationIsRequired(repoName, userName):
-            return transitionToDetail(repositoryName: repoName, userName: userName)
+            transitionToDetail(repositoryName: repoName, userName: userName)
+            return .none
         }
     }
     
@@ -40,17 +41,16 @@ class MainFlow: Flow {
                                                  withNextStepper: mainViewModel))
     }
     
-    private func transitionToDetail(repositoryName: String, userName: String) -> FlowContributors {
+    private func transitionToDetail(repositoryName: String, userName: String) {
+        self.rootViewController.setNavigationBarHidden(false, animated: true)
+        self.rootViewController.navigationBar.tintColor = .white
         var detailRepositoryViewController = DetailRepositoryViewController()
         let detailRepositoryViewModel = DetailRepositoryViewModel(repositoryName: repositoryName, userName: userName)
         detailRepositoryViewController.bind(to: detailRepositoryViewModel)
-        
-        self.rootViewController.setNavigationBarHidden(false, animated: true)
-        self.rootViewController.navigationBar.tintColor = .white
-        
         self.rootViewController.pushViewController(detailRepositoryViewController, animated: true)
-        return.one(flowContributor: .contribute(withNextPresentable: detailRepositoryViewController,
-                                                withNextStepper: detailRepositoryViewModel))
+//        return.one(flowContributor: .contribute(withNextPresentable: detailRepositoryViewController,
+//                                                withNextStepper: detailRepositoryViewModel)
+//        )
     }
     
 }

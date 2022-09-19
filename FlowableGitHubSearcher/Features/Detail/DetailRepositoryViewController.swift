@@ -27,10 +27,19 @@ final class DetailRepositoryViewController: UIViewController, ViewModelBindableT
             make.centerX.centerY.equalToSuperview()
             make.width.height.equalTo(200)
         }
-
     }
     
     func bindViewModel() {
+        let input = self.viewModel.input
+        let output = self.viewModel.output
         
+        // MARK: input
+        
+        // MARK: output
+        output.repositoryInformation
+            .subscribe(onNext: { info in
+                // TEST
+                print("info ~~> \(info)")
+            }).disposed(by: DisposeBag())
     }
 }

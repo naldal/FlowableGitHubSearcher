@@ -11,11 +11,11 @@ import UIKit
 import RxFlow
 
 protocol DetailRepositoryViewModelInput: Stepper {
-    var backAction: PublishSubject<Bool> { get }
+    
 }
 
 protocol DetailRepositoryViewModelOutput {
-    
+    var repositoryInformation: Observable<RepositoryInformation> { get }
 }
 
 protocol DetailRepositoryViewModelType {
@@ -26,9 +26,6 @@ protocol DetailRepositoryViewModelType {
 class DetailRepositoryViewModel: DetailRepositoryViewModelInput,
                                  DetailRepositoryViewModelOutput,
                                  DetailRepositoryViewModelType {
-    
-
-    
     
     // MARK: - Type
     var input: DetailRepositoryViewModelInput { return self }
@@ -45,15 +42,17 @@ class DetailRepositoryViewModel: DetailRepositoryViewModelInput,
     
     // MARK: - Output
 
+    var repositoryInformation = Observable<RepositoryInformation>.empty()
+    
+
     
     
     // MARK: - Init
     
-    init(repositoryName: String, userName: String) {
-        print("~~~>")
-        print(repositoryName)
-        print(userName)
+    init(networkService: NetworkService<GithubSearcherAPI> = NetworkService<GithubSearcherAPI>(), repositoryName: String, userName: String) {
         
+        let networkInteractor = NetworkInteractor(networkService: networkService)
+        repositoryInformation = networkInteractor.fetchRepository(repoName: repositoryName, userName: userName).share()
     }
     
 }

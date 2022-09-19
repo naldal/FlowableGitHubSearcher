@@ -68,7 +68,7 @@ final class RepositoryInformationCell: UITableViewCell {
     }
     
     private let watchIcon = UIImageView().then {
-        $0.image = UIImage(systemName: "eye.fill")
+        $0.image = UIImage(systemName: "tuningfork")
         $0.tintColor = .greenishGrey
     }
     
@@ -130,13 +130,13 @@ final class RepositoryInformationCell: UITableViewCell {
             make.edges.equalToSuperview()
             
             thumbnailImage.snp.makeConstraints { make in
-                make.leading.equalToSuperview().inset(6)
+                make.leading.equalToSuperview()
                 make.centerY.equalToSuperview()
                 make.width.height.equalTo(65)
             }
             
             repositoryTitleLabel.snp.makeConstraints { make in
-                make.leading.equalTo(thumbnailImage.snp.trailing).offset(10)
+                make.leading.equalTo(thumbnailImage.snp.trailing).offset(14)
                 make.top.equalTo(thumbnailImage.snp.top)
                 make.trailing.equalToSuperview()
             }
@@ -204,7 +204,7 @@ final class RepositoryInformationCell: UITableViewCell {
         self.setTextRepositoryTitleLabel(repositoryInfo.name)
         self.setTextRepositoryDescriptionLabel(repositoryInfo.itemDescription)
         self.setTextStarCountLabel(repositoryInfo.stargazersCount)
-        self.setTextWatchCountLabel(repositoryInfo.watchersCount)
+        self.setTextWatchCountLabel(repositoryInfo.forksCount)
         self.configureLayout()
         self.setConstraint()
     }

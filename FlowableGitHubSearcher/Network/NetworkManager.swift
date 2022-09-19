@@ -12,7 +12,7 @@ import RxSwift
 
 enum GithubSearcherAPI {
     case searchRepositories(query: String)
-    case getRepository
+    case getRepository(repo: String, user: String)
     case searchUserInformations
 }
 
@@ -25,8 +25,8 @@ extension GithubSearcherAPI: TargetType {
         switch self {
         case .searchRepositories:
             return Constants.Path.searchRepositoriesPath
-        case .getRepository:
-            return ""
+        case let .getRepository(repo, user):
+            return "/\(repo)/\(user)"
         case .searchUserInformations:
             return ""
         }
