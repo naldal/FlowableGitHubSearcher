@@ -20,6 +20,7 @@ extension UILabel {
                          color: UIColor = .black,
                          align: NSTextAlignment = .natural,
                          font: UIFont = UIFont.systemFont(ofSize: 10, weight: .regular)) {
+        self.text = text
         self.textColor = color
         self.textAlignment = align
         if self.numberOfLines == 1 {

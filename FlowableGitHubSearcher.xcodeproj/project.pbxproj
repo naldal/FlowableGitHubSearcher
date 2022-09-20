@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA33DAF528D9F643008AE3E3 /* StarAndForkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33DAF428D9F643008AE3E3 /* StarAndForkView.swift */; };
+		DA33DAF728DA098F008AE3E3 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33DAF628DA098F008AE3E3 /* UIButton+Extension.swift */; };
+		DA33DAF928DA0B9D008AE3E3 /* NSMutableAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33DAF828DA0B9D008AE3E3 /* NSMutableAttributedString+Extensions.swift */; };
+		DA33DAFC28DA0CC4008AE3E3 /* TopicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33DAFB28DA0CC4008AE3E3 /* TopicsView.swift */; };
+		DA33DAFE28DA0D00008AE3E3 /* HorizontalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33DAFD28DA0D00008AE3E3 /* HorizontalStackView.swift */; };
 		DA45FEF828D6EB9D002F80A9 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA45FEF728D6EB9D002F80A9 /* UILabel+Extensions.swift */; };
 		DA45FEFB28D7444E002F80A9 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = DA45FEFA28D7444E002F80A9 /* Lottie */; };
 		DA45FEFE28D74816002F80A9 /* loadingLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = DA45FEFD28D74816002F80A9 /* loadingLottie.json */; };
@@ -54,6 +59,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA33DAF428D9F643008AE3E3 /* StarAndForkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarAndForkView.swift; sourceTree = "<group>"; };
+		DA33DAF628DA098F008AE3E3 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		DA33DAF828DA0B9D008AE3E3 /* NSMutableAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extensions.swift"; sourceTree = "<group>"; };
+		DA33DAFB28DA0CC4008AE3E3 /* TopicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsView.swift; sourceTree = "<group>"; };
+		DA33DAFD28DA0D00008AE3E3 /* HorizontalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalStackView.swift; sourceTree = "<group>"; };
 		DA45FEF728D6EB9D002F80A9 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		DA45FEFD28D74816002F80A9 /* loadingLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingLottie.json; sourceTree = "<group>"; };
 		DA45FEFF28D748A0002F80A9 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -113,6 +123,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA33DAFA28DA0CAF008AE3E3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA33DAFB28DA0CC4008AE3E3 /* TopicsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DA33DAFF28DA0D92008AE3E3 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				DA33DAFD28DA0D00008AE3E3 /* HorizontalStackView.swift */,
+				DA33DAF428D9F643008AE3E3 /* StarAndForkView.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		DA45FEFC28D74808002F80A9 /* LottieAssets */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +161,7 @@
 		DA5765C428D412D7004E7993 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				DA33DAFA28DA0CAF008AE3E3 /* View */,
 				DA5765C528D412EA004E7993 /* DetailRepositoryViewController.swift */,
 				DA5765C728D41311004E7993 /* DetailRepositoryViewModel.swift */,
 			);
@@ -196,6 +224,7 @@
 		DA5EDE0428D36E7600D00510 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				DA33DAFF28DA0D92008AE3E3 /* Base */,
 				DA5765C428D412D7004E7993 /* Detail */,
 				DA5765C328D412CE004E7993 /* Main */,
 			);
@@ -240,6 +269,8 @@
 				DA5765C928D413F5004E7993 /* UISearchBar+Extensions.swift */,
 				DA45FEF728D6EB9D002F80A9 /* UILabel+Extensions.swift */,
 				DA45FEFF28D748A0002F80A9 /* String+Extensions.swift */,
+				DA33DAF628DA098F008AE3E3 /* UIButton+Extension.swift */,
+				DA33DAF828DA0B9D008AE3E3 /* NSMutableAttributedString+Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -378,11 +409,16 @@
 				DA5EDE2528D3749F00D00510 /* UIColor+Extensions.swift in Sources */,
 				DA5765C228D402C6004E7993 /* ViewModelBindableType.swift in Sources */,
 				DA5EDDC528D36AE300D00510 /* AppDelegate.swift in Sources */,
+				DA33DAF528D9F643008AE3E3 /* StarAndForkView.swift in Sources */,
 				DA5EDE2B28D3756C00D00510 /* UIView+Extensions.swift in Sources */,
 				DA45FF0028D748A0002F80A9 /* String+Extensions.swift in Sources */,
 				DA5765CA28D413F5004E7993 /* UISearchBar+Extensions.swift in Sources */,
+				DA33DAF928DA0B9D008AE3E3 /* NSMutableAttributedString+Extensions.swift in Sources */,
+				DA33DAFE28DA0D00008AE3E3 /* HorizontalStackView.swift in Sources */,
+				DA33DAF728DA098F008AE3E3 /* UIButton+Extension.swift in Sources */,
 				DA5765D628D46694004E7993 /* NetworkInteractor.swift in Sources */,
 				DA5EDE0D28D3712C00D00510 /* NetworkService.swift in Sources */,
+				DA33DAFC28DA0CC4008AE3E3 /* TopicsView.swift in Sources */,
 				DA5EDE3428D379FC00D00510 /* EnumType.swift in Sources */,
 				DA5765CD28D419D7004E7993 /* Constants+UI.swift in Sources */,
 				DA5EDE2F28D3782600D00510 /* UserSearch.swift in Sources */,

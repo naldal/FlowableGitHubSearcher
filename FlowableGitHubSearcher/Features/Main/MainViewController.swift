@@ -145,6 +145,7 @@ class MainViewController: UIViewController, ViewModelBindableType {
         // MARK: Input
         
         searchField.getTextField()?.rx.value
+            .debounce(RxTimeInterval.milliseconds(300), scheduler: MainScheduler.asyncInstance)
             .bind(to: input.searchValue)
             .disposed(by: self.disposeBag)
         
@@ -190,6 +191,7 @@ class MainViewController: UIViewController, ViewModelBindableType {
                 cell.contentView.clipsToBounds = false
                 cell.clipsToBounds = true
                 cell.contentView.backgroundColor = .clear
+
                 cell.bind(repositoryInfo: model)
                 LottieManager.shared.stopLottie()
             }

@@ -47,7 +47,8 @@ class MainFlow: Flow {
         var detailRepositoryViewController = DetailRepositoryViewController()
         let detailRepositoryViewModel = DetailRepositoryViewModel(repositoryName: repositoryName, userName: userName)
         detailRepositoryViewController.bind(to: detailRepositoryViewModel)
-        self.rootViewController.pushViewController(detailRepositoryViewController, animated: true)
+//        self.rootViewController.pushViewController(detailRepositoryViewController, animated: true)
+        self.rootViewController.present(detailRepositoryViewController, animated: true)
     }
     
 }

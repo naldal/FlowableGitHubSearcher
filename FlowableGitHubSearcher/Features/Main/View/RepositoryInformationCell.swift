@@ -30,7 +30,7 @@ final class RepositoryInformationCell: UITableViewCell {
         return view
     }()
     
-    private let thumbnailImage: UIImageView = UIImageView().then {
+    public let thumbnailImage: UIImageView = UIImageView().then {
         $0.layer.cornerRadius = 5
         $0.clipsToBounds = true
     }
@@ -53,33 +53,7 @@ final class RepositoryInformationCell: UITableViewCell {
         )
     }
     
-    private let starIcon = UIImageView().then {
-        $0.image = UIImage(systemName: "star.fill")
-        $0.tintColor = .greenishGrey
-    }
-    
-    private let startCountLabel = UILabel().then {
-        $0.setLabelOptions(numberOfLines: 1,
-                           color: .charcoal,
-                           align: .left,
-                           font: .appleSDGothicNeo(weight: .medium,
-                                                   size: 11)
-        )
-    }
-    
-    private let watchIcon = UIImageView().then {
-        $0.image = UIImage(systemName: "tuningfork")
-        $0.tintColor = .greenishGrey
-    }
-    
-    private let watchCountLabel = UILabel().then {
-        $0.setLabelOptions(numberOfLines: 1,
-                           color: .charcoal,
-                           align: .left,
-                           font: .appleSDGothicNeo(weight: .medium,
-                                                   size: 11)
-        )
-    }
+    private let starForkView = StarAndForkView()
     
     
     // MARK: - Component Option
@@ -98,15 +72,7 @@ final class RepositoryInformationCell: UITableViewCell {
     private func setTextRepositoryDescriptionLabel(_ repoDesc: String?) {
         self.repositoryDesctiptionLabel.text = repoDesc
     }
-    
-    private func setTextStarCountLabel(_ starCount: Int) {
-        self.startCountLabel.text = starCount.description
-    }
-    
-    private func setTextWatchCountLabel(_ watchCount: Int) {
-        self.watchCountLabel.text = watchCount.description
-    }
-    
+ 
     
     
     // MARK: - Layout
@@ -116,10 +82,7 @@ final class RepositoryInformationCell: UITableViewCell {
         baseView.addSubviews([thumbnailImage,
                               repositoryTitleLabel,
                               repositoryDesctiptionLabel,
-                              starIcon,
-                              startCountLabel,
-                              watchIcon,
-                              watchCountLabel])
+                              starForkView])
     }
     
     
@@ -146,29 +109,12 @@ final class RepositoryInformationCell: UITableViewCell {
                 make.leading.trailing.equalTo(repositoryTitleLabel)
             }
             
-            starIcon.snp.makeConstraints { make in
-                make.width.height.equalTo(13)
-                make.bottom.equalTo(thumbnailImage)
-                make.leading.equalTo(repositoryTitleLabel)
-                
-                startCountLabel.snp.makeConstraints { make in
-                    make.height.equalTo(starIcon)
-                    make.leading.equalTo(starIcon.snp.trailing).offset(3)
-                    make.bottom.equalTo(starIcon)
-                }
+            starForkView.snp.makeConstraints { make in
+                make.lastBaseline.equalTo(thumbnailImage)
+                make.leading.equalTo(repositoryTitleLabel.snp.leading)
+                make.height.equalTo(13)
             }
-            
-            watchIcon.snp.makeConstraints { make in
-                make.width.height.equalTo(13)
-                make.bottom.equalTo(thumbnailImage)
-                make.leading.equalTo(startCountLabel.snp.trailing).offset(8)
 
-                watchCountLabel.snp.makeConstraints { make in
-                    make.height.equalTo(watchIcon.snp.height)
-                    make.leading.equalTo(watchIcon.snp.trailing).offset(3)
-                    make.bottom.equalTo(watchIcon)
-                }
-            }
         }
     }
     
@@ -203,8 +149,10 @@ final class RepositoryInformationCell: UITableViewCell {
         self.downloadImageForThumbnail(link: repositoryInfo.owner.avatarURL)
         self.setTextRepositoryTitleLabel(repositoryInfo.name)
         self.setTextRepositoryDescriptionLabel(repositoryInfo.itemDescription)
-        self.setTextStarCountLabel(repositoryInfo.stargazersCount)
-        self.setTextWatchCountLabel(repositoryInfo.forksCount)
+
+        self.starForkView.setStackValues(star: repositoryInfo.stargazersCount,
+                                         fork: repositoryInfo.forksCount)
+        
         self.configureLayout()
         self.setConstraint()
     }
