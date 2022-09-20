@@ -27,4 +27,8 @@ final class HorizontalStackView: UIStackView {
         self.spacing = 5
     }
     
+    func setSpacing(space: CGFloat) {
+        self.spacing = space
+    }
+    
 }

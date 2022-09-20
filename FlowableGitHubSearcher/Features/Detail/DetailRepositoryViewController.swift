@@ -53,12 +53,7 @@ final class DetailRepositoryViewController: UIViewController, ViewModelBindableT
     }
     
     private let starforkStack = StarAndForkView()
-    
-    private let stackView = UIStackView().then {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.spacing = 5
-    }
+    private let topicsStack = TopicsView()
     
     private let createdDate = UILabel().then {
         $0.setLabelOptions(text: "Created at: ",
@@ -122,6 +117,7 @@ final class DetailRepositoryViewController: UIViewController, ViewModelBindableT
                               repoMainTitleLabel,
                               repoDescriptionLabel,
                               starforkStack,
+                              topicsStack,
                               createdDate,
                               updatedDate,
                               gotoGithubPage])
@@ -157,6 +153,12 @@ final class DetailRepositoryViewController: UIViewController, ViewModelBindableT
             make.leading.equalToSuperview().inset(16)
         }
         
+        topicsStack.snp.makeConstraints { make in
+            make.top.equalTo(starforkStack.snp.bottom).offset(12)
+            make.leading.equalToSuperview().inset(16)
+            make.height.equalTo(30)
+        }
+        
         gotoGithubPage.snp.makeConstraints { make in
             make.bottom.equalToSuperview().inset(20+Constants.DeviceScreen.SAFE_AREA_BOTTOM)
             make.leading.trailing.equalToSuperview().inset(16)
@@ -179,6 +181,8 @@ final class DetailRepositoryViewController: UIViewController, ViewModelBindableT
         output.repositoryInformation
             .drive(onNext: { info in
                 print("info ~~> \(info)")
+                
+                self.topicsStack.makeTopicsViews(topics: ["asdfg","asdfg","asdfg","asdfg"])
             })
             .disposed(by: disposeBag)
     }

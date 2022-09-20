@@ -13,7 +13,11 @@ final class TopicsView: UIView {
     
     // MARK: - Component
     
-    
+    private lazy var baseHorizontalStackView: HorizontalStackView = {
+        let horizonStack = HorizontalStackView()
+        horizonStack.setSpacing(space: 5)
+        return horizonStack
+    }()
     
     
     // MARK: - Disposable
@@ -23,11 +27,8 @@ final class TopicsView: UIView {
     
     // MARK: - Init
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        configureLayout()
-        setConstraint()
+    init() {
+        super.init(frame: CGRect.zero)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,23 +37,56 @@ final class TopicsView: UIView {
     
     // MARK: - Private
     
+    private var topicViews: [UIView]?
     
     
     // MARK: - Component Option
     
+    public func makeTopicsViews(topics: [String?]) {
+        
+        setLayout()
+        configureConstraints()
+        
+        topics.compactMap { $0 }.forEach { topic in
+            let topicBaseView = UIView().then {
+                $0.backgroundColor = .cancelGray
+            }
+            baseHorizontalStackView.addArrangedSubview(topicBaseView)
+            let topicText = UILabel().then {
+                $0.setLabelOptions(text: topic,
+                                   numberOfLines: 1,
+                                   color: .charcoal,
+                                   align: .center,
+                                   font: .appleSDGothicNeo(weight: .medium,
+                                                           size: 13)
+                )
+            }
+            topicBaseView.addSubview(topicText)
+            topicText.snp.makeConstraints { make in
+                make.centerX.centerY.equalToSuperview()
+            }
+            topicBaseView.snp.makeConstraints { make in
+                make.width.equalTo(topicText.snp.width).multipliedBy(2)
+                make.height.equalToSuperview()
+            }
+            
+        }
+    }
     
     
     // MARK: - Layout
     
-    func configureLayout() {
-        
+    func setLayout() {
+        self.addSubview(baseHorizontalStackView)
     }
     
     
     // MARK: - Constraint
     
-    func setConstraint() {
-        
+    func configureConstraints() {
+        baseHorizontalStackView.snp.makeConstraints { make in
+            make.edges.width.height.equalToSuperview()
+        }
     }
     
 }
