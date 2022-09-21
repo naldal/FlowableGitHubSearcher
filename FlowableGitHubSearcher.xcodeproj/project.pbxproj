@@ -55,7 +55,6 @@
 		DA5EDE2B28D3756C00D00510 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE2A28D3756C00D00510 /* UIView+Extensions.swift */; };
 		DA5EDE2F28D3782600D00510 /* UserSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE2E28D3782600D00510 /* UserSearch.swift */; };
 		DA5EDE3128D3790F00D00510 /* SearchRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE3028D3790F00D00510 /* SearchRepositories.swift */; };
-		DA5EDE3428D379FC00D00510 /* EnumType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE3328D379FC00D00510 /* EnumType.swift */; };
 		DAE41C9728D805150091ADD7 /* LottieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE41C9628D805150091ADD7 /* LottieManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -100,7 +99,6 @@
 		DA5EDE2A28D3756C00D00510 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		DA5EDE2E28D3782600D00510 /* UserSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearch.swift; sourceTree = "<group>"; };
 		DA5EDE3028D3790F00D00510 /* SearchRepositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositories.swift; sourceTree = "<group>"; };
-		DA5EDE3328D379FC00D00510 /* EnumType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumType.swift; sourceTree = "<group>"; };
 		DAE41C9628D805150091ADD7 /* LottieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -302,7 +300,6 @@
 		DA5EDE3228D379D600D00510 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				DA5EDE3328D379FC00D00510 /* EnumType.swift */,
 				DA5765C128D402C6004E7993 /* ViewModelBindableType.swift */,
 				DAE41C9628D805150091ADD7 /* LottieManager.swift */,
 			);
@@ -423,7 +420,6 @@
 				DA5765D628D46694004E7993 /* NetworkInteractor.swift in Sources */,
 				DA5EDE0D28D3712C00D00510 /* NetworkService.swift in Sources */,
 				DA33DAFC28DA0CC4008AE3E3 /* TopicsView.swift in Sources */,
-				DA5EDE3428D379FC00D00510 /* EnumType.swift in Sources */,
 				DA5765CD28D419D7004E7993 /* Constants+UI.swift in Sources */,
 				DA5EDE2F28D3782600D00510 /* UserSearch.swift in Sources */,
 				DA5EDE3128D3790F00D00510 /* SearchRepositories.swift in Sources */,

@@ -66,25 +66,6 @@ final class DetailRepositoryViewController: UIViewController, ViewModelBindableT
     private let starforkStack = StarAndForkView()
     private let topicsStack = TopicsView()
     
-    private let createdDate = UILabel().then {
-        $0.setLabelOptions(text: "Created at: ",
-                           numberOfLines: 1,
-                           color: .charcoal,
-                           align: .left,
-                           font: .appleSDGothicNeo(weight: .medium,
-                                                   size: 16)
-        )
-    }
-    
-    private let updatedDate = UILabel().then {
-        $0.setLabelOptions(text: "Updated at: ",
-                           numberOfLines: 1,
-                           color: .charcoal,
-                           align: .left,
-                           font: .appleSDGothicNeo(weight: .medium,
-                                                   size: 16)
-        )
-    }
     
     private let gotoGithubPage = UIButton().then {
         let attrString = NSMutableAttributedString()
@@ -143,8 +124,6 @@ final class DetailRepositoryViewController: UIViewController, ViewModelBindableT
                                  repoDescriptionLabel,
                                  starforkStack,
                                  topicsStack,
-                                 createdDate,
-                                 updatedDate,
                                  gotoGithubPage])
         self.view.bringSubviewToFront(contentView)
     }
@@ -171,7 +150,6 @@ final class DetailRepositoryViewController: UIViewController, ViewModelBindableT
         repoMainTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(userImage.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(16)
-            make.width.equalToSuperview()
         }
         
         repoDescriptionLabel.snp.makeConstraints { make in
@@ -225,8 +203,7 @@ final class DetailRepositoryViewController: UIViewController, ViewModelBindableT
         output.repositoryInformation
             .drive(onNext: { [weak self] info in
                 guard let self = self else { return }
-                print("info", info)
-                
+
                 self.setUserImage(link: info.owner.avatarURL)
                 self.setTextOnRepoMainTitle(info.name)
                 self.setTextOnRepoDescription(info.welcomeDescription)
