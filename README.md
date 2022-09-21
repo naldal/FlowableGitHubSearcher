@@ -30,9 +30,10 @@ Github API를 사용하여 Repository를 검색 후 결과를 노출하고, 선�
 
 -------
 <br>
-#### RxFlow 를 사용하여 Storyboard나 Segue같은 시스템에 종속된 네비게이션 매커니즘을 사용을 피하고 Coordinator 를 사용하여 화면의 이동과 서비스 프로세스를 분리하였습니다.
+
+RxFlow 를 사용하여 Storyboard나 Segue같은 시스템에 종속된 네비게이션 매커니즘을 사용을 피하고 Coordinator 를 사용하여 화면의 이동과 서비스 프로세스를 분리하였습니다.
 <br><br>
 
-![스크린샷 2022-09-21 오후 12 00 25](https://user-images.githubusercontent.com/45508297/191404685-c47bd5a4-f7af-432f-a27c-817bc8ac0255.png)
+<img src="https://user-images.githubusercontent.com/45508297/191404685-c47bd5a4-f7af-432f-a27c-817bc8ac0255.png" width="80%" height="45%" title="" alt="3"></img>
 
 
