@@ -12,6 +12,7 @@
 		DA33DAF928DA0B9D008AE3E3 /* NSMutableAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33DAF828DA0B9D008AE3E3 /* NSMutableAttributedString+Extensions.swift */; };
 		DA33DAFC28DA0CC4008AE3E3 /* TopicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33DAFB28DA0CC4008AE3E3 /* TopicsView.swift */; };
 		DA33DAFE28DA0D00008AE3E3 /* HorizontalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33DAFD28DA0D00008AE3E3 /* HorizontalStackView.swift */; };
+		DA413BFB28DA9FFA009EBCD0 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA413BFA28DA9FFA009EBCD0 /* UIImage+Extensions.swift */; };
 		DA45FEF828D6EB9D002F80A9 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA45FEF728D6EB9D002F80A9 /* UILabel+Extensions.swift */; };
 		DA45FEFB28D7444E002F80A9 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = DA45FEFA28D7444E002F80A9 /* Lottie */; };
 		DA45FEFE28D74816002F80A9 /* loadingLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = DA45FEFD28D74816002F80A9 /* loadingLottie.json */; };
@@ -64,6 +65,7 @@
 		DA33DAF828DA0B9D008AE3E3 /* NSMutableAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		DA33DAFB28DA0CC4008AE3E3 /* TopicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsView.swift; sourceTree = "<group>"; };
 		DA33DAFD28DA0D00008AE3E3 /* HorizontalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalStackView.swift; sourceTree = "<group>"; };
+		DA413BFA28DA9FFA009EBCD0 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		DA45FEF728D6EB9D002F80A9 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		DA45FEFD28D74816002F80A9 /* loadingLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingLottie.json; sourceTree = "<group>"; };
 		DA45FEFF28D748A0002F80A9 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				DA45FEFF28D748A0002F80A9 /* String+Extensions.swift */,
 				DA33DAF628DA098F008AE3E3 /* UIButton+Extension.swift */,
 				DA33DAF828DA0B9D008AE3E3 /* NSMutableAttributedString+Extensions.swift */,
+				DA413BFA28DA9FFA009EBCD0 /* UIImage+Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA413BFB28DA9FFA009EBCD0 /* UIImage+Extensions.swift in Sources */,
 				DA5765D428D428A9004E7993 /* NetworkManager.swift in Sources */,
 				DAE41C9728D805150091ADD7 /* LottieManager.swift in Sources */,
 				DA5765CF28D419ED004E7993 /* Constants.swift in Sources */,

@@ -100,10 +100,7 @@ final class DetailRepositoryViewController: UIViewController, ViewModelBindableT
     // MARK: - Component Options
     
     private func setUserImage(link: String) {
-        guard let thumbnailURL = URL(string: link) else {
-            return
-        }
-        self.userImage.kf.setImage(with: thumbnailURL)
+        self.userImage.setImage(with: link)
     }
     
     private func setTextOnRepoMainTitle(_ mainTitle: String) {

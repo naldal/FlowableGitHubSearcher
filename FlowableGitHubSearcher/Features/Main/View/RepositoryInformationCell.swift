@@ -59,10 +59,7 @@ final class RepositoryInformationCell: UITableViewCell {
     // MARK: - Component Option
     
     private func downloadImageForThumbnail(link: String) {
-        guard let thumbnailURL = URL(string: link) else {
-            return
-        }
-        self.thumbnailImage.kf.setImage(with: thumbnailURL)
+        self.thumbnailImage.setImage(with: link)
     }
     
     private func setTextRepositoryTitleLabel(_ repoTitle: String) {
