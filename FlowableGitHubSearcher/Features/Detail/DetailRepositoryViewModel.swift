@@ -15,7 +15,6 @@ protocol DetailRepositoryViewModelInput: Stepper {
 }
 
 protocol DetailRepositoryViewModelOutput {
-    var test: Observable<String> { get }
     var repositoryInformation: Driver<RepositoryInformation> { get }
 }
 
@@ -27,6 +26,7 @@ protocol DetailRepositoryViewModelType {
 class DetailRepositoryViewModel: DetailRepositoryViewModelInput,
                                  DetailRepositoryViewModelOutput,
                                  DetailRepositoryViewModelType {
+
     
     // MARK: - Type
     
@@ -38,15 +38,12 @@ class DetailRepositoryViewModel: DetailRepositoryViewModelInput,
     
     let steps = PublishRelay<Step>()
     var viewWillAppear = PublishSubject<Void>()
-    
+
     
     
     // MARK: - Output
 
-    var test = Observable<String>.just("aa")
     var repositoryInformation = Driver<RepositoryInformation>.empty()
-    
-
     
     
     // MARK: - Init
@@ -59,10 +56,9 @@ class DetailRepositoryViewModel: DetailRepositoryViewModelInput,
         
         repositoryInformation = sharedViewWillAppear.take(1)
             .flatMapLatest { n in
-                print("n ~> \(n)")
                 return networkInteractor.fetchRepository(repoName: repositoryName, userName: userName)
         }.asDriverOnErrorJustComplete()
-    
+        
     }
     
 }

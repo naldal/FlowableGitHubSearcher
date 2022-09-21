@@ -191,7 +191,7 @@ class MainViewController: UIViewController, ViewModelBindableType {
                 cell.contentView.clipsToBounds = false
                 cell.clipsToBounds = true
                 cell.contentView.backgroundColor = .clear
-
+                
                 cell.bind(repositoryInfo: model)
                 LottieManager.shared.stopLottie()
             }

@@ -66,7 +66,7 @@ final class TopicsView: UIView {
                 make.centerX.centerY.equalToSuperview()
             }
             topicBaseView.snp.makeConstraints { make in
-                make.width.equalTo(topicText.snp.width).multipliedBy(2)
+                make.width.greaterThanOrEqualTo(topicText.snp.width).multipliedBy(1.2)
                 make.height.equalToSuperview()
             }
             

@@ -10,6 +10,7 @@ import Foundation
 // MARK: - Welcome
 struct RepositoryInformation: Codable {
     let name: String
+    let fullName: String
     let htmlURL: String
     let welcomeDescription: String?
     let createdAt: String
@@ -20,9 +21,11 @@ struct RepositoryInformation: Codable {
     let forksCount, openIssuesCount: Int
     let topics: [String?]
     let subscribersCount: Int
+    let owner: Owner
 
     enum CodingKeys: String, CodingKey {
         case name
+        case fullName = "full_name"
         case htmlURL = "html_url"
         case welcomeDescription = "description"
         case createdAt = "created_at"
@@ -34,5 +37,6 @@ struct RepositoryInformation: Codable {
         case openIssuesCount = "open_issues_count"
         case topics
         case subscribersCount = "subscribers_count"
+        case owner
     }
 }

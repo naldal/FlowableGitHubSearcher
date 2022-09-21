@@ -28,6 +28,8 @@ struct RepoSearchResponse: Codable {
 struct RepoInfo: Codable {
     /// 고유 아이디
     let id: Int
+    /// 유저아이디/레포이름
+    let fullName: String
     /// 레포 이름
     let name: String
     /// 레포 Private 여부
@@ -45,6 +47,7 @@ struct RepoInfo: Codable {
     
     enum CodingKeys: String, CodingKey {
         case id
+        case fullName = "full_name"
         case name
         case itemPrivate = "private"
         case owner
@@ -62,34 +65,11 @@ struct Owner: Codable {
     let login: String
     let id: Int
     let avatarURL: String
-    let gravatarID: String
     let url: String
-    let htmlURL: String
-    let gistsURL: String
-    let starredURL: String
-    let subscriptionsURL: String
-    let organizationsURL: String
-    let reposURL: String
-    let eventsURL: String
-    let receivedEventsURL: String
-    let type: String
-    let siteAdmin: Bool
-
+    
     enum CodingKeys: String, CodingKey {
         case login, id
         case avatarURL = "avatar_url"
-        case gravatarID = "gravatar_id"
         case url
-        case htmlURL = "html_url"
-        case gistsURL = "gists_url"
-        case starredURL = "starred_url"
-        case subscriptionsURL = "subscriptions_url"
-        case organizationsURL = "organizations_url"
-        case reposURL = "repos_url"
-        case eventsURL = "events_url"
-        case receivedEventsURL = "received_events_url"
-        case type
-        case siteAdmin = "site_admin"
-        
     }
 }

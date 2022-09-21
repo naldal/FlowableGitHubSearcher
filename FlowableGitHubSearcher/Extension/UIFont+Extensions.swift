@@ -15,7 +15,7 @@ enum AppleSDGothicNeo: String {
 }
 
 extension UIFont {
-    class func appleSDGothicNeo(weight: AppleSDGothicNeo, size: CGFloat) -> UIFont {
+    class func appleSDGothicNeo(weight: AppleSDGothicNeo = .medium, size: CGFloat) -> UIFont {
         return UIFont(name: weight.rawValue, size: size) ?? UIFont.systemFont(ofSize: size)
     }
 }

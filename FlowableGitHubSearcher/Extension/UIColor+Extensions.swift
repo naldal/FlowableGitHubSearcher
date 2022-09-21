@@ -79,9 +79,9 @@ extension UIColor {
         return UIColor(red: 211.0 / 255.0, green: 212.0 / 255.0, blue: 218.0 / 255.0, alpha: 1.0)
     }
     
-    /// red: 0.0, green: 0.0, blue: 0.0, alpha: 0.05
-    class var shadowBlack: UIColor {
-        return UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 0.05)
+    /// red: 12.0, green: 17.0, blue: 23.0, alpha: 0.05
+    class var githubBlack: UIColor {
+        return UIColor(red: 12.0/255.0, green: 17.0/255.0, blue: 23.0/255.0, alpha: 1.0)
     }
     
     /// red: 244.0, green: 244.0, blue: 244.0, alpha: 1.0

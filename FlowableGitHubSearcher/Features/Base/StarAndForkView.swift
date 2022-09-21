@@ -69,6 +69,21 @@ final class StarAndForkView: UIView {
         self.forkCountLabel.text = fork.description
     }
     
+    public func setSize(fontSize: CGFloat) {
+        self.startCountLabel.font = .appleSDGothicNeo(size: fontSize)
+    }
+    
+    public func setIcon(starIcon: UIImage, forkIcon: UIImage, size: CGFloat) {
+        self.starIcon.image = starIcon
+        self.forkIcon.image = forkIcon
+        [self.starIcon, self.forkIcon].forEach { icon in
+            icon.snp.makeConstraints { make in
+                make.width.height.equalTo(size)
+            }
+        }
+    }
+    
+    
     
     // MARK: - Layout
     

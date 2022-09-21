@@ -25,13 +25,20 @@ final class DetailRepositoryViewController: UIViewController, ViewModelBindableT
     
     /// 유저 이미지
     private let userImage = UIImageView().then {
-        $0.backgroundColor = .gray
+        $0.backgroundColor = .white
+        $0.contentMode = .scaleAspectFill
     }
+    
+    private lazy var contentView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
     
     /// 레포 메인 라벨
     private let repoMainTitleLabel = UILabel().then {
-        $0.setLabelOptions(text: "Fastlane",
-                           numberOfLines: 1,
+        $0.setLabelOptions(text: "",
+                           numberOfLines: 5,
                            color: .charcoal,
                            align: .left,
                            font: .appleSDGothicNeo(weight: .bold, size: 35)
@@ -39,17 +46,21 @@ final class DetailRepositoryViewController: UIViewController, ViewModelBindableT
 
         $0.adjustsFontSizeToFitWidth = true
         $0.minimumScaleFactor = 0.5
+        $0.lineBreakMode = .byWordWrapping
+        $0.sizeToFit()
     }
     
     private let repoDescriptionLabel = UILabel().then {
-        $0.setLabelOptions(text: "Ansible role - jenkins CI",
-                           numberOfLines: 1,
+        $0.setLabelOptions(text: "",
+                           numberOfLines: 5,
                            color: .charcoal,
                            align: .left,
                            font: .appleSDGothicNeo(weight: .bold, size: 18)
         )
         $0.adjustsFontSizeToFitWidth = true
         $0.minimumScaleFactor = 0.5
+        $0.lineBreakMode = .byCharWrapping
+        $0.sizeToFit()
     }
     
     private let starforkStack = StarAndForkView()
@@ -77,9 +88,9 @@ final class DetailRepositoryViewController: UIViewController, ViewModelBindableT
     
     private let gotoGithubPage = UIButton().then {
         let attrString = NSMutableAttributedString()
-        attrString.setAttributedString(str: "Github 페이지로 이동", color: .charcoal, font: .appleSDGothicNeo(weight: .bold, size: 15))
+        attrString.setAttributedString(str: "Github 페이지로 이동", color: .white, font: .appleSDGothicNeo(weight: .bold, size: 15))
         $0.setButtonStyle(attrStr: attrString,
-                          bgColor: .gray,
+                          bgColor: .githubBlack,
                           borderColor: .clear,
                           borderWidth: 0,
                           radius: 5)
@@ -88,7 +99,24 @@ final class DetailRepositoryViewController: UIViewController, ViewModelBindableT
     
     // MARK: - Component Options
     
+    private func setUserImage(link: String) {
+        guard let thumbnailURL = URL(string: link) else {
+            return
+        }
+        self.userImage.kf.setImage(with: thumbnailURL)
+    }
     
+    private func setTextOnRepoMainTitle(_ mainTitle: String) {
+        self.repoMainTitleLabel.text = mainTitle
+    }
+    
+    private func setTextOnRepoDescription(_ description: String?) {
+        self.repoDescriptionLabel.text = description
+    }
+    
+    // MARK: - Private
+    
+    var githubUrl: String?
     
     // MARK: - DisposeBag
     
@@ -113,14 +141,15 @@ final class DetailRepositoryViewController: UIViewController, ViewModelBindableT
     
     private func setLayout() {
         self.view.addSubview(baseView)
-        baseView.addSubviews([userImage,
-                              repoMainTitleLabel,
-                              repoDescriptionLabel,
-                              starforkStack,
-                              topicsStack,
-                              createdDate,
-                              updatedDate,
-                              gotoGithubPage])
+        baseView.addSubviews([userImage, contentView])
+        contentView.addSubviews([repoMainTitleLabel,
+                                 repoDescriptionLabel,
+                                 starforkStack,
+                                 topicsStack,
+                                 createdDate,
+                                 updatedDate,
+                                 gotoGithubPage])
+        self.view.bringSubviewToFront(contentView)
     }
     
     
@@ -130,22 +159,27 @@ final class DetailRepositoryViewController: UIViewController, ViewModelBindableT
     
         baseView.snp.makeConstraints { make in
             make.edges.width.height.equalToSuperview()
+            
+            userImage.snp.makeConstraints { make in
+                make.top.leading.trailing.equalToSuperview()
+                make.height.equalTo(180)
+            }
         }
         
-        userImage.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(180)
+        contentView.snp.makeConstraints { make in
+            make.top.equalTo(userImage.snp.bottom)
+            make.leading.trailing.bottom.equalToSuperview()
         }
         
         repoMainTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(userImage.snp.bottom).offset(20)
-            make.leading.equalToSuperview().inset(16)
+            make.leading.trailing.equalToSuperview().inset(16)
             make.width.equalToSuperview()
         }
         
         repoDescriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(repoMainTitleLabel.snp.bottom).offset(8)
-            make.leading.equalToSuperview().inset(16)
+            make.leading.trailing.equalToSuperview().inset(16)
         }
         
         starforkStack.snp.makeConstraints { make in
@@ -171,18 +205,43 @@ final class DetailRepositoryViewController: UIViewController, ViewModelBindableT
     // MARK: - Bind
     
     func bindViewModel() {
-        let _ = self.viewModel.input
         let output = self.viewModel.output
         
         // MARK: input
         
+        gotoGithubPage.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self,
+                      let giturl = self.githubUrl else {
+                    return
+                }
+                if let url = URL(string: giturl) {
+                    UIApplication.shared.open(url)
+                }
+            })
+            .disposed(by: self.disposeBag)
+        
+        
+        
         // MARK: output
         
         output.repositoryInformation
-            .drive(onNext: { info in
-                print("info ~~> \(info)")
+            .drive(onNext: { [weak self] info in
+                guard let self = self else { return }
+                print("info", info)
                 
-                self.topicsStack.makeTopicsViews(topics: ["asdfg","asdfg","asdfg","asdfg"])
+                self.setUserImage(link: info.owner.avatarURL)
+                self.setTextOnRepoMainTitle(info.name)
+                self.setTextOnRepoDescription(info.welcomeDescription)
+                self.starforkStack.setStackValues(star: info.stargazersCount,
+                                                  fork: info.forksCount)
+                self.starforkStack.setIcon(starIcon: "starIcon".image,
+                                           forkIcon: "forkIcon".image,
+                                           size: 15)
+                self.starforkStack.setSize(fontSize: 13)
+                self.topicsStack.makeTopicsViews(topics: info.topics)
+            
+                self.githubUrl = info.htmlURL
             })
             .disposed(by: disposeBag)
     }

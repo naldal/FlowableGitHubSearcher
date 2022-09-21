@@ -6,9 +6,14 @@
 //
 
 import Lottie
-import Foundation
+import UIKit
 
 extension String {
+    
+    /// String으로 UIImage 불러오기
+    var image: UIImage {
+        return UIImage(named: self)?.withRenderingMode(.alwaysOriginal) ?? UIImage()
+    }
     
     /// String으로 Lottie Animation 불러오기
     var lottie: Animation {

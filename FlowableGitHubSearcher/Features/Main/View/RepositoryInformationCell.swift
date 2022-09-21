@@ -147,7 +147,7 @@ final class RepositoryInformationCell: UITableViewCell {
     public func bind(repositoryInfo: RepoInfo) {
 
         self.downloadImageForThumbnail(link: repositoryInfo.owner.avatarURL)
-        self.setTextRepositoryTitleLabel(repositoryInfo.name)
+        self.setTextRepositoryTitleLabel(repositoryInfo.fullName)
         self.setTextRepositoryDescriptionLabel(repositoryInfo.itemDescription)
 
         self.starForkView.setStackValues(star: repositoryInfo.stargazersCount,
