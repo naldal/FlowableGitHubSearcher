@@ -40,11 +40,10 @@ public class ReachabilityManager: NSObject {
         reachSubject.asObservable()
             .do(onNext: { reachable in
                 if !reachable {
-                    // Toast Popup OR Lottie animate Show 고려
                     log.error("네트워크 연결 불안정")
                 }
             })
-                }
+    }
     
     // MARK: - Initialize
     

@@ -42,7 +42,6 @@
 		DA5EDE0628D36E9A00D00510 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE0528D36E9A00D00510 /* MainViewModel.swift */; };
 		DA5EDE0B28D370C100D00510 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE0A28D370C100D00510 /* NetworkSession.swift */; };
 		DA5EDE0D28D3712C00D00510 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE0C28D3712C00D00510 /* NetworkService.swift */; };
-		DA5EDE1428D3717C00D00510 /* CommonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE1328D3717C00D00510 /* CommonResponse.swift */; };
 		DA5EDE1728D3722B00D00510 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = DA5EDE1628D3722B00D00510 /* Moya */; };
 		DA5EDE1928D3722B00D00510 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = DA5EDE1828D3722B00D00510 /* ReactiveMoya */; };
 		DA5EDE1B28D3722B00D00510 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = DA5EDE1A28D3722B00D00510 /* RxMoya */; };
@@ -53,7 +52,6 @@
 		DA5EDE2728D3751700D00510 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE2628D3751700D00510 /* UITextField+Extensions.swift */; };
 		DA5EDE2928D3754500D00510 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE2828D3754500D00510 /* UIFont+Extensions.swift */; };
 		DA5EDE2B28D3756C00D00510 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE2A28D3756C00D00510 /* UIView+Extensions.swift */; };
-		DA5EDE2F28D3782600D00510 /* UserSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE2E28D3782600D00510 /* UserSearch.swift */; };
 		DA5EDE3128D3790F00D00510 /* SearchRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5EDE3028D3790F00D00510 /* SearchRepositories.swift */; };
 		DAE41C9728D805150091ADD7 /* LottieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE41C9628D805150091ADD7 /* LottieManager.swift */; };
 /* End PBXBuildFile section */
@@ -90,14 +88,12 @@
 		DA5EDE0528D36E9A00D00510 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		DA5EDE0A28D370C100D00510 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		DA5EDE0C28D3712C00D00510 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		DA5EDE1328D3717C00D00510 /* CommonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonResponse.swift; sourceTree = "<group>"; };
 		DA5EDE1D28D372B800D00510 /* Observable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Extensions.swift"; sourceTree = "<group>"; };
 		DA5EDE1F28D3738D00D00510 /* NetworkErrorBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorBuilder.swift; sourceTree = "<group>"; };
 		DA5EDE2428D3749F00D00510 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		DA5EDE2628D3751700D00510 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		DA5EDE2828D3754500D00510 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		DA5EDE2A28D3756C00D00510 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
-		DA5EDE2E28D3782600D00510 /* UserSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearch.swift; sourceTree = "<group>"; };
 		DA5EDE3028D3790F00D00510 /* SearchRepositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositories.swift; sourceTree = "<group>"; };
 		DAE41C9628D805150091ADD7 /* LottieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -252,7 +248,6 @@
 			children = (
 				DA5EDE0A28D370C100D00510 /* NetworkSession.swift */,
 				DA5EDE0C28D3712C00D00510 /* NetworkService.swift */,
-				DA5EDE1328D3717C00D00510 /* CommonResponse.swift */,
 				DA5EDE1F28D3738D00D00510 /* NetworkErrorBuilder.swift */,
 			);
 			path = NetworkHandler;
@@ -290,7 +285,6 @@
 		DA5EDE2D28D377B400D00510 /* API_Codable */ = {
 			isa = PBXGroup;
 			children = (
-				DA5EDE2E28D3782600D00510 /* UserSearch.swift */,
 				DA5EDE3028D3790F00D00510 /* SearchRepositories.swift */,
 				DA5DC50D28D8B0D600A3D6E4 /* RepositoryInformation.swift */,
 			);
@@ -421,7 +415,6 @@
 				DA5EDE0D28D3712C00D00510 /* NetworkService.swift in Sources */,
 				DA33DAFC28DA0CC4008AE3E3 /* TopicsView.swift in Sources */,
 				DA5765CD28D419D7004E7993 /* Constants+UI.swift in Sources */,
-				DA5EDE2F28D3782600D00510 /* UserSearch.swift in Sources */,
 				DA5EDE3128D3790F00D00510 /* SearchRepositories.swift in Sources */,
 				DA5EDE1E28D372B800D00510 /* Observable+Extensions.swift in Sources */,
 				DA5765D228D41C88004E7993 /* RepositoryInformationCell.swift in Sources */,
@@ -429,7 +422,6 @@
 				DA45FEF828D6EB9D002F80A9 /* UILabel+Extensions.swift in Sources */,
 				DA5EDE2028D3738D00D00510 /* NetworkErrorBuilder.swift in Sources */,
 				DA5EDE0B28D370C100D00510 /* NetworkSession.swift in Sources */,
-				DA5EDE1428D3717C00D00510 /* CommonResponse.swift in Sources */,
 				DA5765C628D412EA004E7993 /* DetailRepositoryViewController.swift in Sources */,
 				DA5DC50E28D8B0D600A3D6E4 /* RepositoryInformation.swift in Sources */,
 				DA5765C828D41311004E7993 /* DetailRepositoryViewModel.swift in Sources */,
