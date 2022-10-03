@@ -87,20 +87,3 @@ extension NetworkService: Networkable {
         
     }
 }
-
-// MARK: - SampleData NetworkService
-
-public extension NetworkService {
-    
-    /// Json SampleData를 사용하기 위한 Request
-    func sampleDataRequest<T: Decodable>(
-        to router: Router,
-        decode: T.Type
-    ) -> Observable<CommonResponse<T>> {
-        stubProvider.rx
-            .request(router, callbackQueue: dispatchQueue)
-            .map(CommonResponse<T>.self)
-            .asObservable()
-    }
-}
-

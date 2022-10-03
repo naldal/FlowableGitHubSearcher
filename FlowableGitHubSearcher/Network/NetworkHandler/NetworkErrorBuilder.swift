@@ -41,13 +41,6 @@ public enum NetworkErrorBuilder {
 
 extension NetworkErrorBuilder {
     
-    private static func errorHandler(from response: Response) -> Observable<Void> {
-        if (try? JSONDecoder().decode(CommonResponse<VoidModel>.self, from: response.data)) != nil {
-            //에러 핸들링 부분 :toeken값, ExceptionStatus 체크 등
-        }
-        return .empty()
-    }
-    
     private static func response(from error: MoyaError) -> Response? {
         switch error {
         case let .statusCode(response):
