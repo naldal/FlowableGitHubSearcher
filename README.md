@@ -6,7 +6,7 @@ Github API를 사용하여 Repository를 검색 후 결과를 노출하고, 선�
 <br>
 어플리케이션 시작후 상단의 검색창에서 Repository 이름을 검색하면 일치하는 결과가 화면에 나타납니다.   
 결과 중 하나를 선택하면 디테일한 정보와 해당 repository의 Github page로 이동할 수 있는 버튼이 노출됩니다.   
-이 버튼을 누르면 Brower로 이동하여 repository page를 띄웁니다. 
+이 버튼을 누르면 해당 웹페이지로 이동하여 repository를 띄웁니다. 
 <br><br>
 
 
